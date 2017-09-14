@@ -1,5 +1,8 @@
 {
 	"welcomeFile": "webapp/index.html",
 	"authenticationMethod": "none",
-	"routes": []
+	"routes": [{
+	"source": "^/getSensorData.xsodata/.*$",
+	"destination": "eCar_api"
+	}]
 }

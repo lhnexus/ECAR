@@ -1,0 +1,4 @@
+service {
+	"ECAR.ecardb::ecar.sensor" as "Sensor"
+	update using "ECAR.ecardb::insetIoTMessage";
+}

@@ -2,19 +2,19 @@ namespace "ECAR"."ecardb";
 
 context ecar {
     entity vehicle {
-        key ID    : String(100);
-            MAKE  : String(100);
-            MODEL : String(100);
-            AGE   : Integer;
-            MILES : Integer;
-            COLOR : String(50);
-            SPEED : Decimal(5, 2);
-            LAT   : DecimalFloat;
-            LNG   : DecimalFloat;
-            STATUS : String(50);
+        key ID          : String(100);
+            MAKE        : String(100);
+            MODEL       : String(100);
+            AGE         : Integer;
+            MILES       : Integer;
+            COLOR       : String(50);
+            SPEED       : Decimal(5, 2);
+            LAT         : DecimalFloat;
+            LNG         : DecimalFloat;
+            STATUS      : String(50);
             CUSTOMER_ID : String(100);
     };
-    
+
     entity battery {
         key ID            : String(100);
             TEMPERATURE   : Decimal(5, 2);
@@ -25,7 +25,7 @@ context ecar {
             SERIAL_NUMBER : String(100);
             partof        : association to vehicle;
     };
-    
+
     entity customer {
         key ID      : String(100);
             NAME    : String(100);
@@ -33,7 +33,7 @@ context ecar {
             EMAIL   : String(50);
             PHONE   : String(100) not null;
     };
-    
+
     entity service_order {
         key ID                  : String(100);
             CUSTOMER_ID         : String(100);
@@ -46,8 +46,7 @@ context ecar {
             SERVICE_CENTER_NAME : String(100);
             MECHANIC_NAME       : String(100);
     };
-    
-   
+
     entity battery_vora_local {
         ID           : String(100);
         TEMPERATURE  : Decimal(5, 2);
@@ -57,18 +56,41 @@ context ecar {
         ECOMSUMPTION : Decimal(7, 2);
         BTIME        : String(100);
     };
-    
+
     define view SOView as
         select from service_order
         {
-                service_order.ID,
-                service_order.CUSTOMER_ID,
-                service_order.VEHICLE_ID,
-                service_order.BATTERY_ID,
-                service_order.CREATE_TIME,
-                service_order.STATUS,
-                service_order.SERVICE_CENTER_NAME,
-                service_order.MECHANIC_NAME
+            service_order.ID,
+            service_order.CUSTOMER_ID,
+            service_order.VEHICLE_ID,
+            service_order.BATTERY_ID,
+            service_order.CREATE_TIME,
+            service_order.STATUS,
+            service_order.SERVICE_CENTER_NAME,
+            service_order.MECHANIC_NAME
         };
 
+    entity sensor {
+        key ID        : String(100);
+        key TIMESTAMP : UTCTimestamp;
+            S1        : Decimal(20, 2);
+            S2        : Decimal(20, 2);
+            S3        : Decimal(20, 2);
+            S4        : Decimal(20, 2);
+            S5        : Decimal(20, 2);
+            S6        : Decimal(20, 2);
+    };
+    
+    define view sensorView as
+        select from sensor
+        {
+        	ID,
+        	TIMESTAMP,
+        	S1,
+        	S2,
+        	S3,
+        	S4,
+        	S5,
+        	S6
+        } order by TIMESTAMP desc;
 };

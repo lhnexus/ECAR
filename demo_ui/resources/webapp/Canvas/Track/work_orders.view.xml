@@ -38,7 +38,7 @@
 							<m:Label text="{CreateTime}" />
 						</template>
 					</Column>
-					<Column width="11rem">
+					<Column width="9rem">
 						<m:Label text="Status" />
 						<template>
 							<m:Label text="{Status}" />
@@ -50,7 +50,7 @@
 							<m:Label text="{ServiceCenter}" />
 						</template>
 					</Column>
-					<Column width="15rem">
+					<Column width="12rem">
 						<m:Label text="Worker Name" />
 						<template>
 							<m:Label text="{WorkerID}" />

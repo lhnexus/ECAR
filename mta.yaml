@@ -34,6 +34,12 @@ modules:
  - name: demo_ui
    type: html5
    path: demo_ui
+   requires:
+     - name: eCar_api
+       group: destinations
+       properties:
+         name: eCar_api
+         url: ~{service_url}
 
 resources:
  - name: hdi-container

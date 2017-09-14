@@ -23,12 +23,20 @@
                 </l:BlockLayoutCell>
             </l:BlockLayoutRow>
             <l:BlockLayoutRow >
-            	 <l:BlockLayoutCell id="cell_2nd" width="100%" class="sapUiNoContentPadding">
-            	<mvc:XMLView id="workorder" viewName="Canvas.Track.work_orders" class="sapUiNoMarginTop" width="100%" height="1000px"/>
+            	<l:BlockLayoutCell id="cell_2nd" width="100%" class="sapUiNoContentPadding">
+            	<mvc:XMLView id="workorder" viewName="Canvas.Track.work_orders" class="sapUiNoMarginTop" width="100%" height="300px"/>
             	</l:BlockLayoutCell>
                     <!--<l:BlockLayoutCell id="cellleft" width="60%" class="sapUiNoContentPadding">-->
                     <!--    <mvc:XMLView id="tracking" viewName="Canvas.Track.tracking" height="750px" class="sapUiNoMarginTop"/>-->
                     <!--</l:BlockLayoutCell>-->
+                    <!--<l:BlockLayoutCell id="cellright" class="sapUiNoMarginTop" width="40%">-->
+                    <!--    <mvc:XMLView id="robotdetail" viewName="Canvas.Track.robotDetail" class="sapUiNoMarginTop"/>-->
+                    <!--</l:BlockLayoutCell>-->
+            </l:BlockLayoutRow>
+            <l:BlockLayoutRow >
+                    <l:BlockLayoutCell id="cellleft" width="100%" class="sapUiNoContentPadding">
+                        <mvc:XMLView id="realchart" viewName="Canvas.Track.realchart" height="420px" class="sapUiNoMarginTop"/>
+                    </l:BlockLayoutCell>
                     <!--<l:BlockLayoutCell id="cellright" class="sapUiNoMarginTop" width="40%">-->
                     <!--    <mvc:XMLView id="robotdetail" viewName="Canvas.Track.robotDetail" class="sapUiNoMarginTop"/>-->
                     <!--</l:BlockLayoutCell>-->

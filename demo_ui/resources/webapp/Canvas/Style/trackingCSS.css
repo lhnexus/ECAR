@@ -1,25 +1,39 @@
 /*.ax_default {*/
-    /*font-family:'ArialMT', 'Arial';*/
-    /*font-weight:400;*/
-    /*font-style:normal;*/
-    /*font-size:13px;*/
-    /*color:#333333;*/
-    /*text-align:center;*/
-    /*line-height:normal;*/
+
+
+/*font-family:'ArialMT', 'Arial';*/
+
+
+/*font-weight:400;*/
+
+
+/*font-style:normal;*/
+
+
+/*font-size:13px;*/
+
+
+/*color:#333333;*/
+
+
+/*text-align:center;*/
+
+
+/*line-height:normal;*/
+
+
 /*}*/
 
 .title {
-    font-size:25px;
-    text-align:left;
+    font-size: 25px;
+    text-align: left;
     color: rgb(82, 0, 163);
-
 }
 
 .subtitle {
-    font-size:20px;
-    text-align:left;
+    font-size: 20px;
+    text-align: left;
     color: rgb(82, 0, 163);
-
 }
 
 .label {
@@ -46,4 +60,30 @@
 
 .sapUiPanelCont {
     border-top: 2px solid grey;
+}
+
+
+/*css for real time animating*/
+#Canvas_Main--realchart--page-cont .axis {
+    stroke-width: 1;
+}
+
+#Canvas_Main--realchart--page-cont .axis .tick line {
+    stroke: black;
+}
+
+#Canvas_Main--realchart--page-cont .axis .tick text {
+    fill: black;
+    font-size: 0.7em;
+}
+
+#Canvas_Main--realchart--page-cont .axis .domain {
+    fill: none;
+    stroke: black;
+}
+
+#Canvas_Main--realchart--page-cont .group {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5;
 }
