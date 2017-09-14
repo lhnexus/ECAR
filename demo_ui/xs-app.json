@@ -2,7 +2,23 @@
 	"welcomeFile": "webapp/index.html",
 	"authenticationMethod": "none",
 	"routes": [{
-	"source": "^/getSensorData.xsodata/.*$",
-	"destination": "eCar_api"
-	}]
+"source": "^/getcars.xsodata/.*$",
+"destination": "eCar_user"
+},
+{
+"source": "^/vehicle.xsodata/.*$",
+"destination": "eCar_user"
+},
+{
+"source": "^/serviceorder.xsodata/.*$",
+"destination": "eCar_user"
+},
+{
+"source": "^/vehicleService.xsodata/.*$",
+"destination": "eCar_user"
+},
+{
+"source": "^/vehicleService.xsjs",
+"destination": "eCar_user"
+}]
 }

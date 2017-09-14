@@ -6,7 +6,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 			onInit: function() {
 
 				var oModel = new sap.ui.model.json.JSONModel();
-				var oRModel = new sap.ui.model.odata.ODataModel("/getSensorData.xsodata");
+				var oRModel = new sap.ui.model.odata.ODataModel("/vehicleService.xsodata");
+				
 				oModel.loadData("Canvas/mockserver/data.json");
 
 				this.getView().setModel(oModel, "jdata");
@@ -126,11 +127,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 						var group = groups[name];
 						//group.data.push(group.value) // Real values arrive at irregular intervals
 						if (name == 'current') {
-							that.getView().getModel("odata").read("/sensor", {
+							that.getView().getModel("odata").read("/vehicle", {
 								async: false,
 								success: function(oData, response) {
 								
-									var s1 = oData.results[0].S1;
+									var s1 = oData.results[0].SPEED;
 									group.data.push(s1);
 									console.log(s1);
 								},
