@@ -1,0 +1,273 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" 
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="sap.m.sample.SplitApp.vehicleMang"
+	xmlns="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:commons="sap.ui.commons"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<SplitApp id="SplitAppDemo" initialDetail="detail" initialMaster="master" orientationChange="onOrientationChange">
+		<detailPages>
+			<Page id="vehicleDetail" title="Vehicle Detail" class="sapUiStdPage" showNavButton="true">
+				<headerContent>
+					<Button icon="sap-icon://action" tooltip="Share"/>
+				</headerContent>
+				<content>
+					<ObjectHeader title="{ID}" number="{MILES}" numberUnit="Km">
+					</ObjectHeader>
+					<IconTabBar
+							id="vehicleITB"
+							expanded="{device>/isNoPhone}"
+							class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter icon="sap-icon://hint">
+								<Label text="Vehicle ID" class="sapMILILabel"/>
+								<Input type="Text" value="{ID}"/>
+								<Label text="MODEL" class="sapMILILabel"/>
+								<Input type="Text" value="{MODEL}"/>
+								<Label text="MAKE" class="sapMILILabel"/>
+								<Input type="Text" value="{MAKE}"/>
+								<Label text="AGE" class="sapMILILabel"/>
+								<Input type="Text" value="{AGE}"/>
+								<Label text="MILES" class="sapMILILabel"/>
+								<Input type="Text" value="{MILES}"/>
+								<Label text="COLOR" class="sapMILILabel"/>
+								<Input type="Text" value="{COLOR}"/>
+							</IconTabFilter>
+							<IconTabFilter
+								icon="sap-icon://customer-order-entry">
+								<Table id="serviceOrderTable" class="sapUiResponsiveMargin sapUiNoMarginTop" growing="true" items="{/service_order?$filter=(VEHICLE_ID%20eq%20%27LSGGH59L9DS157185%27)}">
+									<headerToolbar>
+										<OverflowToolbar id="serviceSubheader">
+											<Title id="serviceTableHeader" text="Service Orders"/>
+											<ToolbarSpacer/>
+											<!--<SearchField id="serviceSearchFiled" search="onSearch" tooltip="Search" width="auto"/>
+											<Button id="serviceEditButton" text="Edit" type="Transparent"
+												press="onEdit" />
+											<Button id="serviceSaveButton" text="Save" type="Transparent"
+												press="onSave" visible="false" />
+											<Button id="serviceCancelButton" text="Cancel" type="Transparent"
+												press="onCancel" visible="false" /> -->
+											<PullToRefresh id="serviceOrderRefresh" refresh="handleRefresh"/>
+										</OverflowToolbar> 
+									</headerToolbar>
+									<columns>
+										<Column id="ID"><Text id="serviceOrderId" text="Service Order ID"/> </Column>
+										<Column id="createdDate"><Text id="create_value" text="Created Date"/> </Column>
+										<Column id="centerName"><Text id="center_value" text="Service Center"/> </Column>
+										<Column id="machanic"><Text id="mechanic_value" text="Mechanic"/> </Column>
+										<Column id="status"><Text id="status_value" text="Status"/> </Column>
+									</columns>
+									<items>
+										<ColumnListItem press="onPressService" type="Navigation">
+											<cells>
+												<ObjectIdentifier title="{ID}" />
+												<Text text ="{CREATE_TIME}" />
+												<Text text="{SERVICE_CENTER_NAME}"/>
+												<Text text="{MECHANIC_NAME}"/>
+												<Text text="{STATUS}"/>
+											</cells>   
+										</ColumnListItem>
+									</items>
+								</Table>
+							</IconTabFilter>
+							<IconTabFilter
+								icon="sap-icon://person-placeholder">
+								<form:SimpleForm id="customerForm" >
+									<Label text="Name" />
+									<Text text="Sha Liu"/>
+									<Label text="Tel" />
+									<Text text="0086-13816653180"/>
+									<Label text="Address" />
+									<Text text="1001,Chenhui Road,Pudong district,Shanghai"/>
+								</form:SimpleForm>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+			</Page>
+			<Page id="batteryDetail" title="Battery Detail" class="sapUiStdPage" showNavButton="true"
+				  navButtonText="Back" navButtonPress="onPressDetailBack">
+				<content>
+					<html:style>
+						.sapMPullDown{
+							background-color:transparent
+						}
+						
+						.sapUiTableTbr{
+							height:50px
+						}
+						
+						.vizFramePosition{
+							margin-left:19px
+						}
+					</html:style>
+					<table:Table id="batteryTable" selectionMode="Single" class="sapUiResponsiveMargin sapUiNoMarginTop" rows="{path:'/vehicleInfo'}" >
+				         <table:toolbar>
+				         	<OverflowToolbar>
+								<ToolbarSpacer width="1rem"/>
+					            <Button icon="sap-icon://edit" id="batterySaveButton" text="Update" type="Transparent"
+										press="onSaveBattery" visible="true" />
+								<ToolbarSpacer/>
+								<PullToRefresh id="batteryRefresh" refresh="batteryHandleRefresh" />
+				         	</OverflowToolbar>
+				         </table:toolbar>
+					    <table:columns>
+					       <table:Column id="serialNumber">
+								<Label text="Serial Number"/> 
+								<table:template>
+									<commons:TextField value="{SERIAL_NUMBER}" editable="false"></commons:TextField>
+								</table:template>
+							</table:Column>
+							<table:Column id="bat_ID">
+								<Label text="ID"/>
+								<table:template>
+									<Text text="{BATTERY_ID}"></Text>
+								</table:template>
+							</table:Column>
+							<table:Column id="current">
+								<Label text="CURRENT"/>
+								<table:template>
+									<Text text="{CURRENT}"></Text>
+								</table:template>
+							</table:Column>
+							<table:Column id="bat_temp">
+								<Label text="Temperature"/>
+								<table:template>
+									<Text text="{path : 'TEMPERATURE', formatter: 'Formatter.status'}"></Text>
+								</table:template>
+							</table:Column>
+							<table:Column id="bat_voltage">
+								<Label text="Voltage"/> 
+								<table:template>
+									<Text text="{VOLTAGE}"></Text>
+								</table:template>
+							</table:Column>
+							<table:Column id="bat_soc">
+								<Label text="SOC"/>
+								<table:template>
+									<Text text="{SOC}"></Text>
+								</table:template>
+							</table:Column>
+					    </table:columns>
+					  </table:Table>
+					  
+					 <viz:VizFrame class="vizFramePosition" id="batteryLine" uiConfig="{applicationSet:'fiori'}"
+		                height='50%' width="96%" vizType='line' title=" ">
+		                <viz:dataset>
+		                    <viz.data:FlattenedDataset data="{/modelData}">
+		                        <viz.data:dimensions>
+		                            <viz.data:DimensionDefinition name="TIME"
+		                                value="{BTIME}" />
+		                        </viz.data:dimensions>
+		                        <viz.data:measures>
+		                            <viz.data:MeasureDefinition name="TEMPERATURE"
+		                                value="{TEMPERATURE}" />
+		    						<viz.data:MeasureDefinition name="SOC"
+		                            	value="{SOC}" />
+		                        </viz.data:measures>
+		                    </viz.data:FlattenedDataset>
+		                </viz:dataset>
+		
+		                <viz:feeds>
+		                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure" visible="true"
+		                        values="TEMPERATURE" />
+		                    <viz.feeds:FeedItem id='valueAxisFeed2' uid="valueAxis2" type="Measure" visible="true"
+		                        values="SOC" />
+		                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
+		                        values="TIME" />
+		                </viz:feeds>
+            		</viz:VizFrame>
+				</content>
+			</Page>
+			<Page id="customerDetail" title="Customer Detail" class="sapUiStdPage" showNavButton="true"
+				  navButtonText="Back" navButtonPress="onPressDetailBack">
+				<content>
+					<ObjectHeader title="0012344321" number="0086-13816653180" numberUnit="Tel"></ObjectHeader>
+					<IconTabBar
+							id="customerITB"
+							expanded="{device>/isNoPhone}"
+							class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter icon="sap-icon://hint">
+								<!--<Label text="Customer ID" />
+								<Input type="Text" value="0012344321"/>-->
+								<Label text="Address" />
+								<Input type="Text" value="1001,Chenhui Road,Pudong district,Shanghai"/>
+								<Label text="Email" />
+								<Input type="Text" value="sha.liu01@sap.com"/>
+								<Label text="Phone" />
+								<Input type="Text" value="0086-13816653180"/>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://customer-history">
+								<Text text="Customer service history"/>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+			</Page>
+		</detailPages>
+		<masterPages class="masterPages">
+			<Page id="master" title="Vehicles" icon="sap-icon://action" class="sapUiStdPage">
+				<subHeader>
+					<Bar><contentLeft><SearchField search="handleSearch" width="100%"></SearchField></contentLeft></Bar>
+				</subHeader>   
+				<content>
+					<List id="vehicleList" headerText="Vehicles" items="{path:'/vehicle',sorter:{path:'ID'}}">
+						<ObjectListItem type="Active" press="onPressGoToMaster" title="{ID}" number="{MILES}" numberUnit="Km">
+							<attributes>
+								<ObjectAttribute text="{MAKE}"/>
+							</attributes>
+							<firstStatus>
+								<ObjectStatus text="{MODEL}"/>
+							</firstStatus>
+							<!--<StandardListItem title="{ID}" info="{CURRENT}" infoState="{path:'Curr', formatter:'Formatter.status'}" type="Navigation" press="onPressGoToMaster"/>-->
+						</ObjectListItem>
+					</List>
+				</content>
+			</Page>
+			<Page id="master_infomation" title="Information" icon="sap-icon://action" class="sapUiStdPage" showNavButton="true"
+				  navButtonPress="onPressMasterBack">
+				<content>
+					<List id="info_list" itemPress="onListItemPress">
+						<!--<items>
+							<StandardListItem title="Vehicle" info="{ID}" type="Active" custom:to="vehicleDetail"/>
+							<StandardListItem title="Battery" info="{ID_BATTERY}" type="Active" custom:to="batteryDetail"/>
+							<StandardListItem title="Customer" info="0012344321" type="Active" custom:to="customerDetail"/>
+						</items>-->
+						<ObjectListItem type="Active" title="Vehicle" number="{ID}" custom:to="vehicleDetail">
+							<attributes>
+								<ObjectAttribute text="{MAKE} {MODEL}"/>
+							</attributes>
+							<firstStatus>
+								<ObjectStatus text="{AGE} Years"/>
+							</firstStatus>
+						</ObjectListItem>
+						<ObjectListItem type="Active" title="Batteries Set" number="{ID_BATTERY}" numberUnit="" custom:to="batteryDetail">
+							<attributes>
+								<ObjectAttribute text=""/>
+							</attributes>
+							<firstStatus>
+								<ObjectStatus text="4 Batteries"/>
+							</firstStatus>
+						</ObjectListItem>
+						<ObjectListItem type="Active" title="Customer" number="0012344321" numberUnit="" custom:to="customerDetail">
+							<attributes>
+								<ObjectAttribute text="Tel 0086-13816653180"/>
+							</attributes>
+							<firstStatus>
+								<ObjectStatus text="Shanghai"/>
+							</firstStatus>
+						</ObjectListItem>
+					</List>
+				</content>
+			</Page>
+		</masterPages>
+	</SplitApp>
+</mvc:View>

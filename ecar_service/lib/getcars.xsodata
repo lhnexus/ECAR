@@ -1,0 +1,7 @@
+service {
+	"ECAR.ecardb.calview::getcar" as "getcars" keys generate local "RD_ID";
+	"ECAR.ecardb::ecar.vehicle" as "vehicle" navigates ("vehicle_battery" as "vbattery");
+	"ECAR.ecardb::ecar.battery" as "battery";
+	association "vehicle_battery" with referential constraint principal "vehicle"("ID") multiplicity "1" dependent "battery"("partof.ID") multiplicity "*";
+	 
+}

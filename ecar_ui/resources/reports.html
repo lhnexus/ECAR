@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m, sap.ui.commons, sap.ui.table"
+	data-sap-ui-theme="sap_bluecrystal">
+</script>
+<script type="text/javascript">
+	var data = {
+				reports: [
+					{reportName: "Marketing Report", date: "12/03/2017",count: "5"},
+					{reportName: "Sales Report", date: "10/03/2017", count: "10"},
+					{reportName: "Battery Service Report", date: "1/02/2017", count: "20"},
+					{reportName: "Customer Service Report", date: "22/03/2017", count: "13"},
+					{reportName: "Vehicle Service  Report", date: "21/02/2017", count: "15"}
+				]
+	};
+			
+	var model = new sap.ui.model.json.JSONModel();
+	model.setData(data);
+			
+	var list = new sap.m.List({
+		headerText:"Reports"
+	});
+			
+	list.bindItems({
+		path : "/reports", 
+		sorter : new sap.ui.model.Sorter("count"),
+		template : new sap.m.StandardListItem({
+					title: "{reportName}",
+					info: "{count}",
+					description: "{date}",
+					type: sap.m.ListType.Navigation,
+					icon : "sap-icon://manager-insight",
+					press:function(evt){
+						var oBindingContext = evt.getSource().getBindingContext(); 
+						detailPage.setBindingContext(oBindingContext); 
+						app.to("detailPage");
+			}
+		})
+	});
+			
+	var reportPage = new sap.m.Page({
+		title: "Reports",
+		content : list
+	});
+			
+	var detailPage = new sap.m.Page("detailPage", {
+		title: "Detail Page",
+		showNavButton: true,
+		navButtonPress: function(){
+			app.back();
+		},
+		content : [
+			new sap.ui.layout.form.SimpleForm({ 
+				title: "Details",
+				content: [
+					new sap.m.Label({text: "Report Name"}),
+					new sap.m.Text({text: "{reportName}"}),
+					new sap.m.Label({text: "Count"}),
+					new sap.m.Text({text: "{count}"})
+				]
+			})
+		]
+	});
+			
+	var app = new sap.m.App({
+		pages: [reportPage, detailPage]
+	}).placeAt("reportList");
+	app.setModel(model);
+</script>
+</head>
+<body class="sapUiBody sapUiSizeCozy">
+	<div id="Shell" data-sap-ui="Shell" class="sapMShell sapMShellAppWidthLimited" style="height:100%">
+		<div class="sapMShellCentralBox" style="height:100%">
+				<div id='content' style="height:100%">
+					<div id="reportList"></div>
+				</div>
+		</div>
+	</div>
+</body>
+</html>

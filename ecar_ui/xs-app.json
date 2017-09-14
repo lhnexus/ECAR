@@ -1,0 +1,24 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+"source": "^/getcars.xsodata/.*$",
+"destination": "eCar_api"
+},
+{
+"source": "^/vehicle.xsodata/.*$",
+"destination": "eCar_api"
+},
+{
+"source": "^/serviceorder.xsodata/.*$",
+"destination": "eCar_api"
+},
+{
+"source": "^/vehicleService.xsodata/.*$",
+"destination": "eCar_api"
+},
+{
+"source": "^/vehicleService.xsjs",
+"destination": "eCar_api"
+}]
+}

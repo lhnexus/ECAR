@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<style>
+html, body {
+    height: 100%;
+}
+
+.chart-field{
+	width: 50%;
+	float: left
+}
+
+#map{
+	height:60%;
+	border-top:0.25rem solid #009de0
+}
+
+#reportList{
+	border-top:0.25rem solid #009de0
+}
+
+.gm-style-iw {
+	width: 350px !important;
+	top: 15px !important;
+	left: 0px !important;
+	background-color: #fff;
+	box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+	border: 1px solid rgba(72, 181, 233, 0.6);
+	border-radius: 2px 2px 10px 10px;
+}
+#iw-container {
+	margin-bottom: 10px;
+}
+#iw-container .iw-title {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 25px;
+	font-weight: 400;
+	padding: 10px;
+	background-color: #48b5e9;
+	color: white;
+	margin: 0;
+	border-radius: 2px 2px 0 0;
+}
+#iw-container .iw-content {
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 400;
+	margin-right: 1px;
+	padding: 15px 5px 20px 10px;
+	max-height: 140px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.iw-media{
+	float: right;
+	width: 135px;
+}
+
+.iw-media img {
+	float: right;
+	margin: 5px 0 5px 10px;
+    width: 135px;
+}
+
+.iw-media button{
+	background: #48b5e9 none repeat scroll 0 0;
+    border: 7px solid #48b5e9;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #3990b9;
+    color: white;
+    font-family: "Open Sans Condensed",sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 22px 0 0;
+    padding: 0 19px;
+}
+
+.iw-content > table{
+	width: 180px;
+}
+
+.iw-subTitle {
+	font-size: 16px;
+	font-weight: 700;
+	padding: 5px 0;
+}
+.iw-bottom-gradient {
+	position: absolute;
+	width: 326px;
+	height: 25px;
+	bottom: 10px;
+	right: 18px;
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+</style>
+<title>ECar Monitor Center</title>
+<!-- 1.) Load SAPUI5 (from a remote server), select theme and control library -->
+<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m, sap.ui.commons, sap.ui.table"
+	data-sap-ui-theme="sap_bluecrystal">
+</script>
+<!-- 2.) Create a UI5 button and place it onto the page -->
+<script type="text/javascript">
+	var oTable = new sap.ui.table.Table("vehicleTable",{ 
+		title: "Vehicle Information",
+		visibleRowCount : 10,
+		firstVisibleRow : 3,
+		selectionMode : sap.ui.table.SelectionMode.Single,
+		selectionBehavior: sap.ui.table.SelectionBehavior.Row
+		});
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"STATUS"}),
+											   template: new sap.ui.core.Icon().setSrc("sap-icon://accept")
+																			   .setColor("green"),
+												width:"100px"
+	}));
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"VID"}), 
+											   template: new sap.ui.commons.TextView().bindProperty("text","ID"),
+											   width: "200px"}));
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"MODEL"}), 
+											   template: new sap.ui.commons.TextView().bindProperty("text","MODEL"),
+											   width: "100px"}));
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"MAKE"}), 
+											   template: new sap.ui.commons.TextView().bindProperty("text","MAKE"),
+											   width: "100px"}));
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"COLOR"}), 
+											   template: new sap.ui.commons.TextView().bindProperty("text","COLOR"),
+											   width: "100px"}));
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"AGE"}), 
+											   template: new sap.ui.commons.TextView().bindProperty("text","AGE"),
+											   width: "100px"}));
+	// oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"Battery ID"}), 
+	// 										   template: new sap.ui.commons.TextView().bindProperty("text","ID_BATTERY"),
+	// 										   width: "100px"}));
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"LATITUDE"}), 
+											   template: new sap.ui.commons.TextView().bindProperty("text","LAT"),
+											   width: "150px"}));										   
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"LONGITUDE"}), 
+											   template: new sap.ui.commons.TextView().bindProperty("text","LNG"),
+											   width: "150px"}));
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"MILES"}), 
+											   template: new sap.ui.commons.TextView().bindProperty("text","MILES"),
+											   width: "100px"}));
+											   
+	oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"CUSTOMER"}), 
+	 										   template: new sap.ui.commons.TextView().bindProperty("text","CUSTOMER_ID"),
+	 										   width: "100px"}));
+	// oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"BATTERY CURRENT"}), 
+	// 										   template: new sap.ui.commons.TextView().bindProperty("text","CURRENT"),
+	// 										   width: "160px"}));
+	// oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"BATTERY ECOMSUMPTION"}), 
+	// 										   template: new sap.ui.commons.TextView().bindProperty("text","ECOMSUMPTION"),
+	// 										   width: "195px"}));
+	// oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"BATTERY SOC"}), 
+	// 										   template: new sap.ui.commons.TextView().bindProperty("text","SOC"),
+	// 										   width: "120px"}));
+	// oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"BATTERY TEMPERATURE"}), 
+	// 										   template: new sap.ui.commons.TextView().bindProperty("text","TEMPERATURE"),
+	// 										   width: "190px"}));
+	// oTable.addColumn(new sap.ui.table.Column({ label: new sap.ui.commons.Label({text:"BATTERY VOLTAGE"}), 
+	// 										   template: new sap.ui.commons.TextView().bindProperty("text","VOLTAGE"),
+	// 										   width: "150px"}));
+
+
+	var oModel = new sap.ui.model.odata.ODataModel("/vehicleService.xsodata", true);
+	oTable.setModel(oModel);
+	oTable.bindRows("/vehicle");
+	oTable.placeAt("vehicleInfoField");
+	oModel.read('/vehicle',{
+		success:function(oData){
+			if(oData.results.length > 0){
+			sap.ui.getCore().setModel(oData,"vehicleInformation");
+			}
+	}});
+</script>
+</head>
+<body class="sapUiBody sapUiSizeCozy">
+	<!-- This is where you place the UI5 button -->
+	<div id="Shell" data-sap-ui="Shell" class="sapMShell sapMShellAppWidthLimited" style="height:100%">
+		<div class="sapMShellCentralBox" style="height:100%">
+			<div id='content' style="height:100%">
+				<div id="chartField" style="height:1060px">
+					<div id="statusReport" class="chart-field" style="height: 530px" onclick="window.location='http://pvgl50935119.dhcp.pvgl.sap.corp:51029/vehicle.html';"></div>
+					<div id="regionDistribution" class="chart-field" style="height: 530px" onclick="window.location='#vehicleLocation';"></div>
+					<div id="serviceStatistics" class="chart-field" style="height: 530px" onclick="window.location='#reports';"></div>
+					<div id="auditReport" class="chart-field" style="height: 530px" onclick="window.location='#reports';"></div>
+				</div>
+				<div id="vehicleMap" style="height:100%">
+					<a name="vehicleLocation"></a>
+					<div id="map" style="height:60%"></div>
+					<div id='vehicleInfoField'></div>
+				</div>
+				<a name="reports"></a>
+				<div id="reportList"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="controller/mapController.js"></script>
+	<script type="text/javascript">
+	sap.ui.localResources("statuschart");
+	var app = new sap.m.App({initialPage:"status_chart"});
+	var page = sap.ui.view({
+		id:"status_chart",
+		viewName:"statuschart.statusChart",
+		type:sap.ui.core.mvc.ViewType.XML
+	});
+	app.addPage(page);
+	app.placeAt("statusReport");
+	
+	sap.ui.localResources("regionchart");
+	var regionApp = new sap.m.App({initialPage:"region_chart"});
+	var regionPage = sap.ui.view({
+		id:"region_chart",
+		viewName:"regionchart.regionChart",
+		type:sap.ui.core.mvc.ViewType.XML
+	});
+	regionApp.addPage(regionPage);
+	regionApp.placeAt("regionDistribution");
+	
+
+	sap.ui.localResources("servicechart");
+	var serviceApp = new sap.m.App({initialPage:"service_chart"});
+	var servicePage = sap.ui.view({
+		id:"service_chart",
+		viewName:"servicechart.serviceChart",
+		type:sap.ui.core.mvc.ViewType.XML
+	});
+	serviceApp.addPage(servicePage);
+	serviceApp.placeAt("serviceStatistics");
+
+	sap.ui.localResources("auditchart");
+	var auditApp = new sap.m.App({initialPage:"audit_chart"});
+	var auditPage = sap.ui.view({
+		id:"audit_chart",
+		viewName:"auditchart.auditChart",
+		type:sap.ui.core.mvc.ViewType.XML
+	});
+	auditApp.addPage(auditPage);
+	auditApp.placeAt("auditReport");
+	
+		var data = {
+				reports: [
+					{reportName: "Marketing Report", date: "12/03/2017",count: "5"},
+					{reportName: "Sales Report", date: "10/03/2017", count: "10"},
+					{reportName: "Battery Service Report", date: "1/02/2017", count: "20"},
+					{reportName: "Customer Service Report", date: "22/03/2017", count: "13"},
+					{reportName: "Vehicle Service  Report", date: "21/02/2017", count: "15"}
+				]
+	};
+			
+	var model = new sap.ui.model.json.JSONModel();
+	model.setData(data);
+			
+	var list = new sap.m.List({
+		headerText:"Reports"
+	});
+			
+	list.bindItems({
+		path : "/reports", 
+		sorter : new sap.ui.model.Sorter("count"),
+		template : new sap.m.StandardListItem({
+					title: "{reportName}",
+					info: "{count}",
+					description: "{date}",
+					type: sap.m.ListType.Navigation,
+					icon : "sap-icon://manager-insight",
+					press:function(evt){
+						var oBindingContext = evt.getSource().getBindingContext(); 
+						detailPage.setBindingContext(oBindingContext); 
+						app.to("detailPage");
+			}
+		})
+	});
+			
+	var reportPage = new sap.m.Page({
+		content : list
+	});
+			
+	var detailPage = new sap.m.Page("detailPage", {
+		title: "Detail Page",
+		showNavButton: true,
+		navButtonPress: function(){
+			app.back();
+		},
+		content : [
+			new sap.ui.layout.form.SimpleForm({ 
+				title: "Details",
+				content: [
+					new sap.m.Label({text: "Report Name"}),
+					new sap.m.Text({text: "{reportName}"}),
+					new sap.m.Label({text: "Count"}),
+					new sap.m.Text({text: "{count}"})
+				]
+			})
+		]
+	});
+			
+	var reportApp = new sap.m.App({
+		pages: [reportPage, detailPage]
+	}).placeAt("reportList");
+	reportApp.setModel(model);
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<mvc:View
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.suite.ui.commons"
+	xmlns:l="sap.ui.layout"
+	xmlns:m="sap.m"
+	controllerName="Canvas.Track.robotDetail"
+	height="100%">
+	<m:Page id="tpage" showHeader="false" enableScrolling="false">
+		<!--<m:Panel>-->
+			<l:VerticalLayout>
+				<l:content>
+					<l:HorizontalLayout>
+						<l:content>
+							<m:Label id="title" text="{/id}" class="title" width="500px"/>
+							<m:Image
+									class="sapUiLargeMarginBegin sapUiNoMarginTop"
+									src="{/ricon}"
+									>
+							</m:Image>
+						</l:content>
+					</l:HorizontalLayout>
+
+					<l:HorizontalLayout>
+						<l:content>
+						<m:Label id="lwtime" text="Robot Status:" class="label sapUiTinyMarginEnd"/>
+						<m:Label id="vwtime" text="{/status}" class="value"/>
+						</l:content>
+					</l:HorizontalLayout>
+					<l:HorizontalLayout>
+						<l:content>
+							<m:Label id="lrtime" text="Remaining Working Time:" class="label sapUiTinyMarginEnd"/>
+							<m:Label id="vrtime" text="{/remain} minutes" class="value"/>
+						</l:content>
+					</l:HorizontalLayout>
+					<m:Label id="ttask" text="Task" class="subtitle sapUiMediumMarginTop"/>
+					<l:HorizontalLayout>
+						<l:content>
+							<m:Label id="ltid" text="Task ID:" class="label sapUiTinyMarginEnd"/>
+							<m:Label id="vtid" text="{/tid}" class="value"/>
+							<m:Label id="lsloc" text="Source Location:" class="label sapUiLargeMarginBegin sapUiTinyMarginEnd"/>
+							<m:Label id="vsloc" text="{/sLoc}" class="value"/>
+						</l:content>
+					</l:HorizontalLayout>
+					<l:HorizontalLayout>
+						<l:content>
+							<m:Label id="lttype" text="Task Type:" class="label sapUiTinyMarginEnd"/>
+							<m:Label id="vttype" text="{/ttype}" class="value"/>
+							<m:Label id="ltloc" text="Destination Location:" class="label sapUiLargeMarginBegin sapUiTinyMarginEnd"/>
+							<m:Label id="vtloc" text="{/tLoc}" class="value"/>
+						</l:content>
+					</l:HorizontalLayout>
+					<m:Label id="rrack" text="Related Rack" class="subtitle sapUiMediumMarginTop"/>
+					<l:HorizontalLayout>
+						<l:content>
+							<m:Label id="lrid" text="Rack ID:" class="label sapUiTinyMarginEnd"/>
+							<m:Label id="vrid" text="{/rid}" class="value"/>
+							<m:Label id="lgid" text="Goods ID:" class="label sapUiLargeMarginBegin sapUiTinyMarginEnd"/>
+							<m:Label id="vgid" text="{/gid}" class="value"/>
+						</l:content>
+					</l:HorizontalLayout>
+					<l:HorizontalLayout>
+						<l:content>
+							<m:Label id="lrtype" text="Rack Type:" class="label sapUiTinyMarginEnd"/>
+							<m:Label id="vrtype" text="{/rtype}" class="value"/>
+							<m:Label id="lgtype" text="Goods Type:" class="label sapUiLargeMarginBegin sapUiTinyMarginEnd"/>
+							<m:Label id="vgtype" text="{/gtype}" class="value"/>
+						</l:content>
+					</l:HorizontalLayout>
+					<m:Label id="gtimeline" text="Goods Timeline" class="subtitle sapUiMediumMarginTop sapUiTinyMarginBottom"/>
+					<!--<m:Panel id="TimePanel">-->
+					<!--<m:content>-->
+					<!--	<Timeline-->
+					<!--			id="idTimeline"-->
+					<!--			axisOrientation="Vertical"-->
+					<!--			enableScroll="false"-->
+					<!--			enableDoubleSided="true"-->
+					<!--			groupBy="time"-->
+					<!--			growingThreshold="0"-->
+					<!--			sort="true"-->
+					<!--			sortOldestFirst="true"-->
+					<!--			content="{/GoodTimeLine}"-->
+					<!--			showIcons="true"-->
+					<!--			showFilterBar="false"-->
+					<!--			width = "630px"-->
+					<!--	>-->
+					<!--		<content>-->
+					<!--			<TimelineItem-->
+					<!--					id="idTemplateItem"-->
+					<!--					dateTime="{time}"-->
+					<!--					title="{title}"-->
+					<!--					icon="{Icon}"-->
+					<!--			>-->
+					<!--			</TimelineItem>-->
+					<!--		</content>-->
+					<!--	</Timeline>-->
+					<!--</m:content>-->
+					<!--</m:Panel>-->
+				</l:content>
+			</l:VerticalLayout>
+		<!--</m:Panel>-->
+	</m:Page>
+</mvc:View>

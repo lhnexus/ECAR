@@ -1,0 +1,49 @@
+/*.ax_default {*/
+    /*font-family:'ArialMT', 'Arial';*/
+    /*font-weight:400;*/
+    /*font-style:normal;*/
+    /*font-size:13px;*/
+    /*color:#333333;*/
+    /*text-align:center;*/
+    /*line-height:normal;*/
+/*}*/
+
+.title {
+    font-size:25px;
+    text-align:left;
+    color: rgb(82, 0, 163);
+
+}
+
+.subtitle {
+    font-size:20px;
+    text-align:left;
+    color: rgb(82, 0, 163);
+
+}
+
+.label {
+    border-width: 0px;
+    /*position: absolute;*/
+    left: 19px;
+    top: 49px;
+    /*width: 150px;*/
+    height: 22px;
+    font-size: 18px;
+    color: rgb(112, 106, 106);
+}
+
+.value {
+    border-width: 0px;
+    /*position: absolute;*/
+    left: 19px;
+    top: 49px;
+    width: 160px;
+    height: 22px;
+    font-size: 18px;
+    color: rgb(102, 0, 255);
+}
+
+.sapUiPanelCont {
+    border-top: 2px solid grey;
+}

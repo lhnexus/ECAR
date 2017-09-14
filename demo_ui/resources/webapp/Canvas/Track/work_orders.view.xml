@@ -1,0 +1,63 @@
+<mvc:View controllerName="Canvas.Track.work_orders" xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
+	<m:Page id="page" showHeader="false">
+				<m:content>
+					<Table
+				rows="{/WorkOrders}"
+				title="Work Orders"
+				selectionMode="MultiToggle"
+				visibleRowCount="7">
+				<columns>
+					<Column width="15rem">
+						<m:Label text="Order ID" />
+						<template>
+							<m:Text text="{OrderID}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="15rem">
+						<m:Label text="Customer ID" />
+						<template>
+							<m:Text text="{CustomerID}"/>
+						</template>
+					</Column>
+					<Column width="15rem">
+						<m:Label text="Vehicle ID" />
+						<template>
+							<m:Label text="{VehicleID}" />
+						</template>
+					</Column>
+					<Column width="15rem">
+						<m:Label text="Battery ID" />
+						<template>
+							<m:Label text="{BatteryID}" />
+						</template>
+					</Column>
+					<Column width="14rem">
+						<m:Label text="Create Time" />
+						<template>
+							<m:Label text="{CreateTime}" />
+						</template>
+					</Column>
+					<Column width="11rem">
+						<m:Label text="Status" />
+						<template>
+							<m:Label text="{Status}" />
+						</template>
+					</Column>
+					<Column width="15rem">
+						<m:Label text="Service Center Name" />
+						<template>
+							<m:Label text="{ServiceCenter}" />
+						</template>
+					</Column>
+					<Column width="15rem">
+						<m:Label text="Worker Name" />
+						<template>
+							<m:Label text="{WorkerID}" />
+						</template>
+					</Column>
+				</columns>
+			</Table>
+				</m:content>
+	</m:Page>
+</mvc:View>

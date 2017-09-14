@@ -1,0 +1,5 @@
+service {
+	"ECAR.ecardb::ecar.service_order" as "serviceorder";
+	//"ECAR.ecardb::serviceordercustomer" as "serviceordercustomer";
+	"ECAR.ecardb.calview::serviceorderVehicleInfo" as "serviceorderVehicleInfo";//service_order, vehicle, battery, customer
+}

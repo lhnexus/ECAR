@@ -1,0 +1,4 @@
+service {
+	"ECAR.ecardb::ecar.vehicle" as "Vehicle"
+	update using "ECAR.ecardb::updateCarInfo";
+}

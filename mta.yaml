@@ -1,0 +1,42 @@
+ID: ECAR
+_schema-version: '2.0'
+version: 0.0.1
+
+modules:
+ - name: ecar_service
+   type: nodejs
+   path: ecar_service
+   requires: 
+     - name: ecardb 
+     - name: hdi-container
+   provides:
+    - name: eCar_api
+      properties:
+         url: ${default-url}
+
+ - name: ecardb
+   type: hdb
+   path: ecardb
+   requires:
+     - name: hdi-container
+
+ - name: ecar_ui
+   type: html5
+   path: ecar_ui
+   requires:
+     - name: eCar_api
+       group: destinations
+       properties:
+         name: eCar_api
+         url: ~{url}
+        
+
+ - name: demo_ui
+   type: html5
+   path: demo_ui
+
+resources:
+ - name: hdi-container
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

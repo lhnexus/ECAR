@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="ECAR.ecardb.calview::serviceorderVehicleInfo" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="DAILY" enforceSqlExecution="false">
+<descriptions defaultDescription="serviceorderVehicleInfo"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="ECAR.ecardb::ecar.service_order">
+    <resourceUri>ECAR.ecardb::ecar.service_order</resourceUri>
+  </DataSource>
+  <DataSource id="ECAR.ecardb.calview::vehicleInfo">
+    <resourceUri>ECAR.ecardb.calview::vehicleInfo</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="serviceorder_vehicleInfo" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="CREATE_TIME">
+        <descriptions defaultDescription="CREATE_TIME"/>
+      </viewAttribute>
+      <viewAttribute id="SERVICE_ORDER_ID">
+        <descriptions defaultDescription="ID"/>
+      </viewAttribute>
+      <viewAttribute id="SERVICE_ORDER_STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="ADDRESS">
+        <descriptions defaultDescription="ADDRESS"/>
+      </viewAttribute>
+      <viewAttribute id="AGE" aggregationType="sum">
+        <descriptions defaultDescription="AGE"/>
+      </viewAttribute>
+      <viewAttribute id="BATTERY_ID">
+        <descriptions defaultDescription="BATTERY_ID"/>
+      </viewAttribute>
+      <viewAttribute id="COLOR">
+        <descriptions defaultDescription="COLOR"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENT" aggregationType="sum">
+        <descriptions defaultDescription="CURRENT"/>
+      </viewAttribute>
+      <viewAttribute id="CUSTOMER_ID">
+        <descriptions defaultDescription="CUSTOMER_ID"/>
+      </viewAttribute>
+      <viewAttribute id="CUSTOMER_NAME">
+        <descriptions defaultDescription="CUSTOMER_NAME"/>
+      </viewAttribute>
+      <viewAttribute id="ECOMSUMPTION" aggregationType="sum">
+        <descriptions defaultDescription="ECOMSUMPTION"/>
+      </viewAttribute>
+      <viewAttribute id="EMAIL">
+        <descriptions defaultDescription="EMAIL"/>
+      </viewAttribute>
+      <viewAttribute id="LAT" aggregationType="sum">
+        <descriptions defaultDescription="LAT"/>
+      </viewAttribute>
+      <viewAttribute id="LNG" aggregationType="sum">
+        <descriptions defaultDescription="LNG"/>
+      </viewAttribute>
+      <viewAttribute id="MAKE">
+        <descriptions defaultDescription="MAKE"/>
+      </viewAttribute>
+      <viewAttribute id="MILES" aggregationType="sum">
+        <descriptions defaultDescription="MILES"/>
+      </viewAttribute>
+      <viewAttribute id="MODEL">
+        <descriptions defaultDescription="MODEL"/>
+      </viewAttribute>
+      <viewAttribute id="PHONE">
+        <descriptions defaultDescription="PHONE"/>
+      </viewAttribute>
+      <viewAttribute id="SERIAL_NUMBER">
+        <descriptions defaultDescription="SERIAL_NUMBER"/>
+      </viewAttribute>
+      <viewAttribute id="SOC" aggregationType="sum">
+        <descriptions defaultDescription="SOC"/>
+      </viewAttribute>
+      <viewAttribute id="SPEED" aggregationType="sum">
+        <descriptions defaultDescription="SPEED"/>
+      </viewAttribute>
+      <viewAttribute id="VEHICLE_STATUS">
+        <descriptions defaultDescription="STATUS_1"/>
+      </viewAttribute>
+      <viewAttribute id="TEMPERATURE" aggregationType="sum">
+        <descriptions defaultDescription="TEMPERATURE"/>
+      </viewAttribute>
+      <viewAttribute id="VEHICLE_ID">
+        <descriptions defaultDescription="VEHICLE_ID"/>
+      </viewAttribute>
+      <viewAttribute id="VOLTAGE" aggregationType="sum">
+        <descriptions defaultDescription="VOLTAGE"/>
+      </viewAttribute>
+      <viewAttribute id="JOIN$BATTERY_ID$BATTERY_ID" hidden="true"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="ECAR.ecardb::ecar.service_order">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREATE_TIME" source="CREATE_TIME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SERVICE_ORDER_ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SERVICE_ORDER_STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BATTERY_ID$BATTERY_ID" source="BATTERY_ID"/>
+    </input>
+    <input node="ECAR.ecardb.calview::vehicleInfo">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESS" source="ADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AGE" source="AGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BATTERY_ID" source="BATTERY_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COLOR" source="COLOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENT" source="CURRENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMER_ID" source="CUSTOMER_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMER_NAME" source="CUSTOMER_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ECOMSUMPTION" source="ECOMSUMPTION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAIL" source="EMAIL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LAT" source="LAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LNG" source="LNG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MAKE" source="MAKE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MILES" source="MILES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MODEL" source="MODEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PHONE" source="PHONE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SERIAL_NUMBER" source="SERIAL_NUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SOC" source="SOC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SPEED" source="SPEED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VEHICLE_STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TEMPERATURE" source="TEMPERATURE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VEHICLE_ID" source="VEHICLE_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VOLTAGE" source="VOLTAGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BATTERY_ID$BATTERY_ID" source="BATTERY_ID"/>
+    </input>
+    <joinAttribute name="JOIN$BATTERY_ID$BATTERY_ID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="serviceorder_vehicleInfo">
+  <attributes>
+    <attribute id="CREATE_TIME" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREATE_TIME"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="CREATE_TIME"/>
+    </attribute>
+    <attribute id="SERVICE_ORDER_ID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SERVICE_ORDER_ID"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="SERVICE_ORDER_ID"/>
+    </attribute>
+    <attribute id="SERVICE_ORDER_STATUS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SERVICE_ORDER_STATUS"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="SERVICE_ORDER_STATUS"/>
+    </attribute>
+    <attribute id="ADDRESS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ADDRESS"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="ADDRESS"/>
+    </attribute>
+    <attribute id="AGE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AGE"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="AGE"/>
+    </attribute>
+    <attribute id="BATTERY_ID" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BATTERY_ID"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="BATTERY_ID"/>
+    </attribute>
+    <attribute id="COLOR" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COLOR"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="COLOR"/>
+    </attribute>
+    <attribute id="CURRENT" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENT"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="CURRENT"/>
+    </attribute>
+    <attribute id="CUSTOMER_ID" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTOMER_ID"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="CUSTOMER_ID"/>
+    </attribute>
+    <attribute id="CUSTOMER_NAME" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTOMER_NAME"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="CUSTOMER_NAME"/>
+    </attribute>
+    <attribute id="ECOMSUMPTION" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ECOMSUMPTION"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="ECOMSUMPTION"/>
+    </attribute>
+    <attribute id="EMAIL" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAIL"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="EMAIL"/>
+    </attribute>
+    <attribute id="LAT" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LAT"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="LAT"/>
+    </attribute>
+    <attribute id="LNG" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LNG"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="LNG"/>
+    </attribute>
+    <attribute id="MAKE" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MAKE"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="MAKE"/>
+    </attribute>
+    <attribute id="MILES" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MILES"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="MILES"/>
+    </attribute>
+    <attribute id="MODEL" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MODEL"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="MODEL"/>
+    </attribute>
+    <attribute id="PHONE" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PHONE"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="PHONE"/>
+    </attribute>
+    <attribute id="SERIAL_NUMBER" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SERIAL_NUMBER"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="SERIAL_NUMBER"/>
+    </attribute>
+    <attribute id="SOC" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SOC"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="SOC"/>
+    </attribute>
+    <attribute id="SPEED" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SPEED"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="SPEED"/>
+    </attribute>
+    <attribute id="VEHICLE_STATUS" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VEHICLE_STATUS"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="VEHICLE_STATUS"/>
+    </attribute>
+    <attribute id="TEMPERATURE" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEMPERATURE"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="TEMPERATURE"/>
+    </attribute>
+    <attribute id="VEHICLE_ID" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VEHICLE_ID"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="VEHICLE_ID"/>
+    </attribute>
+    <attribute id="VOLTAGE" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VOLTAGE"/>
+      <keyMapping columnObjectName="serviceorder_vehicleInfo" columnName="VOLTAGE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="serviceorder_vehicleInfo" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="52" y="253"/>
+      <rectangleSize height="30" width="235"/>
+    </shape>
+    <shape modelObjectName="ECAR.ecardb::ecar.service_order" modelObjectNameSpace="serviceorder_vehicleInfo" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="100" y="25"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="ECAR.ecardb.calview::vehicleInfo" modelObjectNameSpace="serviceorder_vehicleInfo" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="400" y="25"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,14 @@
+service {
+	"ECAR.ecardb::ecar.service_order" as "service_order";
+	"ECAR.ecardb::ecar.SOView" as "service_order_create" key ("ID") create using "ECAR.ecardb::placeServiceOrder" events (before "xsjs:jsExit.xsjslib::create_after");
+	"ECAR.ecardb::ecar.customer" as "customer";
+	"ECAR.ecardb::ecar.vehicle" as "vehicle";
+	"ECAR.ecardb::ecar.battery" as "battery";
+	"ECAR.ecardb::ecar.battery_vora_local" as "battery_vora_local";
+	//"ECAR.ecardb.calview::ecar.vehicle_vora_view" as "vehicle_vora" keys generate local "LID";
+	//"ECAR.ecardb::ecar.vehicle_vora" as "vehicle_vora_t" keys generate local "TID";
+	"ECAR.ecardb.calview::vehicleService" as "getvehicleservice"; 
+}
+settings {
+support null;
+}

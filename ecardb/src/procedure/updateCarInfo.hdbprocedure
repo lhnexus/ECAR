@@ -1,0 +1,23 @@
+PROCEDURE "ECAR.ecardb::updateCarInfo" (IN vehicle "ECAR.ecardb::ecar.vehicle",IN oldVehicle "ECAR.ecardb::ecar.vehicle", OUT ext_error "ECAR.ecardb::Procedures.tt_errors")
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+  AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   
+   declare vid string;
+   declare colorid string;
+   select ID into vid from :vehicle ;
+   select COLOR into colorid from :vehicle;
+  
+  if :vid = '' then 
+	ext_error = select 500 as HTTP_STATUS_CODE, 
+               'Invalid vehicle id ' as ERROR_MESSAGE, 
+                     'No Way! ID field can not be empty' as DETAIL from "ECAR.ecardb::DUMMY";
+  else
+	update "ECAR.ecardb::ecar.vehicle" set COLOR = :colorid where ID=:vid;
+  end if;
+END

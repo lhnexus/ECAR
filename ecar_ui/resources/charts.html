@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<style>
+.chart-field{
+	height: 530px;
+	width: 50%;
+	float: left
+}
+</style>
+<title></title>
+<!-- 1.) Load SAPUI5 (from a remote server), select theme and control library -->
+<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m, sap.ui.commons, sap.ui.table"
+	data-sap-ui-theme="sap_bluecrystal">
+</script>
+
+<script>
+	sap.ui.localResources("statuschart");
+	var app = new sap.m.App({initialPage:"status_chart"});
+	var page = sap.ui.view({
+		id:"status_chart",
+		viewName:"statuschart.statusChart",
+		type:sap.ui.core.mvc.ViewType.XML
+	});
+	app.addPage(page);
+	app.placeAt("statusReport");
+	
+</script>
+
+<script>
+	sap.ui.localResources("regionchart");
+	var regionApp = new sap.m.App({initialPage:"region_chart"});
+	var regionPage = sap.ui.view({
+		id:"region_chart",
+		viewName:"regionchart.regionChart",
+		type:sap.ui.core.mvc.ViewType.XML
+	});
+	regionApp.addPage(regionPage);
+	regionApp.placeAt("regionDistribution");
+	
+</script>
+
+<script>
+	sap.ui.localResources("servicechart");
+	var serviceApp = new sap.m.App({initialPage:"service_chart"});
+	var servicePage = sap.ui.view({
+		id:"service_chart",
+		viewName:"servicechart.serviceChart",
+		type:sap.ui.core.mvc.ViewType.XML
+	});
+	serviceApp.addPage(servicePage);
+	serviceApp.placeAt("serviceStatistics");
+</script>
+
+<script>
+	sap.ui.localResources("auditchart");
+	var app = new sap.m.App({initialPage:"audit_chart"});
+	var page = sap.ui.view({
+		id:"audit_chart",
+		viewName:"auditchart.auditChart",
+		type:sap.ui.core.mvc.ViewType.XML
+	});
+	app.addPage(page);
+	app.placeAt("auditReport");
+	
+</script>
+
+</head>
+<body class="sapUiBody sapUiSizeCozy">
+	<div id="Shell" data-sap-ui="Shell" class="sapMShell sapMShellAppWidthLimited" style="height:100%">
+		<div class="sapMShellCentralBox" style="height:100%">
+				<div id='content' style="height:100%">
+					<div id="chartField">
+					<div id="statusReport" class="chart-field" style="height: 530px"></div>
+					<div id="regionDistribution" class="chart-field" style="height: 530px"></div>
+					<div id="serviceStatistics" class="chart-field" style="height: 530px"></div>
+					<div id="auditReport" class="chart-field" style="height: 530px"></div>
+				</div>
+				</div>
+		</div>
+	</div>
+</body>
+</html>

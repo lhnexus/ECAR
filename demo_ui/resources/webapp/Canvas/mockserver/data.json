@@ -1,0 +1,747 @@
+{
+  "WorkOrders": [{
+    "OrderID": "WO00001",
+    "CustomerID": "Benz",
+    "VehicleID": "Benz000001",
+    "BatteryID": "BTL20170803",
+    "CreateTime": "2017/06/08",
+    "Status": "Complete",
+    "ServiceCenter": "SHZJ",
+    "WorkerID": "John"
+  },{
+    "OrderID": "WO00002",
+    "CustomerID": "Benz",
+    "VehicleID": "Benz000002",
+    "BatteryID": "BTL20170804",
+    "CreateTime": "2017/06/08",
+    "Status": "Complete",
+    "ServiceCenter": "SHZJ",
+    "WorkerID": "Jerry"
+  }],
+  "Cargo": {
+    "width": "50",
+    "height": "50",
+    "content": "rgb(84,153,199)",
+    "reltime": "2000"
+  },
+  "InboundQueue": [{
+    "id": "Cargo1",
+    "desc": "Cargo Item 1"
+  },{
+    "id": "Cargo2",
+    "desc": "Cargo Item 2"
+  },{
+    "id": "Cargo3",
+    "desc": "Cargo Item 3"
+  },{
+    "id": "Cargo4",
+    "desc": "Cargo Item 4"
+  },{
+    "id": "Cargo5",
+    "desc": "Cargo Item 5"
+  }],
+  "OutboundQueue":[
+    {
+      "id": "Cargo11",
+      "desc": "Cargo Item 11"
+    }
+  ],
+  "Canvas": {
+    "id": "main_canvas",
+    "width": "1089",
+    "height": "850"
+  },
+  "Areas":{
+    "Charging": {
+      "id": "CArea",
+      "width": "100",
+      "height": "240",
+      "stroke": "rgb(209,242,235)",
+      "stroke_width": "4",
+      "text": "Charging Area",
+      "x": "50",
+      "y": "50"
+
+    },
+    "Inbound": {
+      "id": "IArea",
+      "width": "180",
+      "height": "90",
+      "stroke": "rgb(209,242,235)",
+      "stroke_width": "4",
+      "text": "Inbound Area",
+      "x": "180",
+      "y": "660"
+    },
+    "Outbound": {
+      "id": "OArea",
+      "width": "180",
+      "height": "90",
+      "stroke": "rgb(209,242,235)",
+      "stroke_width": "4",
+      "text": "Outbound Area",
+      "x": "710",
+      "y": "660"
+    }
+  },
+  "Warehouse": {
+    "Capacity": "78%",
+    "RoUtRate": "62.5%",
+    "Temperature": "23.8",
+    "Humidity": "44.6%"
+
+  },
+
+  "Counters":{
+    "width": "86",
+    "height": "40",
+    "stroke": "rgb(209,242,235)",
+    "stroke_width": "4",
+    "stroke_dasharray": "4,4",
+    "Locations": [
+      {
+        "id": "A-1",
+        "fill": "false",
+        "x": "300",
+        "y": "50"
+      },{
+        "id": "A-2",
+        "fill": "false",
+        "x": "300",
+        "y": "105"
+      },{
+        "id": "A-3",
+        "fill": "false",
+        "x": "300",
+        "y": "160"
+      },{
+        "id": "A-4",
+        "fill": "false",
+        "x": "300",
+        "y": "215"
+      },{
+        "id": "A-5",
+        "fill": "false",
+        "x": "300",
+        "y": "270"
+      },{
+        "id": "A-6",
+        "fill": "false",
+        "x": "300",
+        "y": "325"
+      },{
+        "id": "A-7",
+        "fill": "false",
+        "x": "300",
+        "y": "380"
+      },{
+        "id": "B-1",
+        "fill": "false",
+        "x": "570",
+        "y": "50"
+      },{
+        "id": "B-2",
+        "fill": "false",
+        "x": "570",
+        "y": "105"
+      },{
+        "id": "B-3",
+        "fill": "false",
+        "x": "570",
+        "y": "160"
+      },{
+        "id": "B-4",
+        "fill": "false",
+        "x": "570",
+        "y": "215"
+      },{
+        "id": "B-5",
+        "fill": "false",
+        "x": "570",
+        "y": "270"
+      },{
+        "id": "B-6",
+        "fill": "false",
+        "x": "570",
+        "y": "325"
+      },{
+        "id": "B-7",
+        "fill": "false",
+        "x": "570",
+        "y": "380"
+      },{
+        "id": "C-1",
+        "fill": "false",
+        "x": "670",
+        "y": "50"
+      },{
+        "id": "C-2",
+        "fill": "false",
+        "x": "670",
+        "y": "105"
+      },{
+        "id": "C-3",
+        "fill": "false",
+        "x": "670",
+        "y": "160"
+      },{
+        "id": "C-4",
+        "fill": "false",
+        "x": "670",
+        "y": "215"
+      },{
+        "id": "C-5",
+        "fill": "false",
+        "x": "670",
+        "y": "270"
+      },{
+        "id": "C-6",
+        "fill": "false",
+        "x": "670",
+        "y": "325"
+      },{
+        "id": "C-7",
+        "fill": "false",
+        "x": "670",
+        "y": "380"
+      },{
+        "id": "D-1",
+        "fill": "false",
+        "x": "920",
+        "y": "50"
+      },{
+        "id": "D-2",
+        "fill": "false",
+        "x": "920",
+        "y": "105"
+      },{
+        "id": "D-3",
+        "fill": "false",
+        "x": "920",
+        "y": "160"
+      },{
+        "id": "D-4",
+        "fill": "true",
+        "x": "920",
+        "y": "215"
+      },{
+        "id": "D-5",
+        "fill": "false",
+        "x": "920",
+        "y": "270"
+      },{
+        "id": "D-6",
+        "fill": "false",
+        "x": "920",
+        "y": "325"
+      },{
+        "id": "D-7",
+        "fill": "true",
+        "x": "920",
+        "y": "380"
+      }
+    ]
+  },
+  "Cars": [
+    {
+      "id": "Car1",
+      "width": "86",
+      "height": "40",
+      "Speed": "0.12",
+      "fill": "true",
+      "status": "working",
+      "remain": "49",
+      "ricon": "Canvas/img/u152.png",
+      "tid": "T077H821",
+      "ttype": "Goods Issue",
+      "sLoc": "Inbound Area",
+      "tLoc": "A-1",
+      "rid": "R12037",
+      "gid": "G032",
+      "rtype": "Mobile Rack",
+      "gtype": "HANA Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "Date(1470403200000)",
+        "Icon": "sap-icon://shipping-status"
+
+      },{
+        "title": "Inspection",
+        "time": "Date(1471020400000)",
+        "Icon": "sap-icon://action-settings"
+
+      },{
+        "title": "Assembling",
+        "time": "Date(1471290800000)",
+        "Icon": "sap-icon://wrench"
+      },{
+        "title": "Packing",
+        "time": "Date(1472777600000)",
+        "Icon": "sap-icon://product"
+      },{
+        "title": "Storage",
+        "time": "Date(1473404400000)",
+        "Icon": "sap-icon://database"
+      },{
+        "title": "Delivery",
+        "time": "Date(1476697200000)",
+        "Icon": "sap-icon://decision"
+      }],
+      "Locations": [
+        {
+          "x": "100",
+          "y": "450",
+          "wtime": "0",
+          "NS": "S",
+          "NC": "false"
+        },
+        {
+          "x": "440",
+          "y": "450",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "440",
+          "y": "70",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "true"
+        },
+        {
+          "x": "343",
+          "y": "70",
+          "wtime": "0",
+          "NS": "N",
+          "NC": "false"
+        },
+        {
+          "x": "440",
+          "y": "70",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "false"
+        },
+        {
+          "x": "440",
+          "y": "450",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "false"
+        },
+        {
+          "x": "100",
+          "y": "450",
+          "wtime": "0",
+          "NS": "E",
+          "NC": "false"
+        }]},{
+      "id": "Car2",
+      "width": "86",
+      "height": "40",
+      "Speed": "0.15",
+      "fill": "false",
+      "status": "working",
+      "remain": "30",
+      "ricon": "Canvas/img/u152.png",
+      "tid": "T086H938",
+      "ttype": "Goods Issue",
+      "sLoc": "D-4",
+      "tLoc": "Outbound Area",
+      "rid": "R12104",
+      "gid": "G046",
+      "rtype": "Mobile Rack",
+      "gtype": "Windows Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "Date(1470403279843)",
+        "Icon": "sap-icon://shipping-status"
+
+      },{
+        "title": "Inspection",
+        "time": "Date(1471031248060)",
+        "Icon": "sap-icon://action-settings"
+
+      },{
+        "title": "Assembling",
+        "time": "Date(1471281900010)",
+        "Icon": "sap-icon://wrench"
+      },{
+        "title": "Packing",
+        "time": "Date(1472666700000)",
+        "Icon": "sap-icon://product"
+      },{
+        "title": "Storage",
+        "time": "Date(1473907100000)",
+        "Icon": "sap-icon://database"
+      },{
+        "title": "Delivery",
+        "time": "Date(1477108200000)",
+        "Icon": "sap-icon://decision"
+      }],
+      "Locations": [
+        {
+          "x": "300",
+          "y": "450",
+          "wtime": "0",
+          "NS": "S",
+          "NC": "false"
+        },
+        {
+          "x": "875",
+          "y": "450",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "875",
+          "y": "235",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "true"
+        },
+        {
+          "x": "963",
+          "y": "235",
+          "wtime": "0",
+          "NS": "N",
+          "NC": "false"
+        },
+        {
+          "x": "875",
+          "y": "235",
+          "wtime": "2000",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "875",
+          "y": "450",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "false"
+        },
+        {
+          "x": "300",
+          "y": "450",
+          "wtime": "0",
+          "NS": "E",
+          "NC": "false"
+        }
+      ]
+    },{
+      "id": "Car3",
+      "width": "86",
+      "height": "40",
+      "Speed": "0.1",
+      "fill": "false",
+      "status": "working",
+      "remain": "34",
+      "ricon": "Canvas/img/u152.png",
+      "tid": "T096F587",
+      "ttype": "Goods Issue",
+      "sLoc": "B-3",
+      "tLoc": "Outbound Area",
+      "rid": "R16045",
+      "gid": "G012",
+      "rtype": "Mobile Rack",
+      "gtype": "EMC Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "Date(1470912200000)",
+        "Icon": "sap-icon://shipping-status"
+
+      },{
+        "title": "Inspection",
+        "time": "Date(1471234400000)",
+        "Icon": "sap-icon://action-settings"
+
+      },{
+        "title": "Assembling",
+        "time": "Date(1471647800000)",
+        "Icon": "sap-icon://wrench"
+      },{
+        "title": "Packing",
+        "time": "Date(1472457600000)",
+        "Icon": "sap-icon://product"
+      },{
+        "title": "Storage",
+        "time": "Date(1473547400000)",
+        "Icon": "sap-icon://database"
+      },{
+        "title": "Delivery",
+        "time": "Date(1477102200000)",
+        "Icon": "sap-icon://decision"
+      }],
+      "Locations": [
+        {
+          "x": "100",
+          "y": "610",
+          "wtime": "0",
+          "NS": "S",
+          "NC": "false"
+        },
+        {
+          "x": "225",
+          "y": "610",
+          "wtime": "0",
+          "NS": "I",
+          "NC": "false"
+        },
+        {
+          "x": "450",
+          "y": "610",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "450",
+          "y": "180",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "true"
+        },
+        {
+          "x": "613",
+          "y": "180",
+          "wtime": "0",
+          "NS": "N",
+          "NC": "false"
+        },
+        {
+          "x": "450",
+          "y": "180",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "450",
+          "y": "610",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "false"
+        },
+        {
+          "x": "100",
+          "y": "610",
+          "wtime": "0",
+          "NS": "E",
+          "NC": "false"
+        }
+      ]
+    },{
+      "id": "Car4",
+      "width": "86",
+      "height": "40",
+      "Speed": "0.05",
+      "fill": "false",
+      "status": "working",
+      "remain": "26",
+      "ricon": "Canvas/img/u154.png",
+      "tid": "T097A890",
+      "ttype": "Goods Issue",
+      "sLoc": "D-7",
+      "tLoc": "Outbound Area",
+      "rid": "R17032",
+      "gid": "G051",
+      "rtype": "Mobile Rack",
+      "gtype": "Windows Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "Date(1470734200000)",
+        "Icon": "sap-icon://shipping-status"
+
+      },{
+        "title": "Inspection",
+        "time": "Date(1471401400000)",
+        "Icon": "sap-icon://action-settings"
+
+      },{
+        "title": "Assembling",
+        "time": "Date(1471598800000)",
+        "Icon": "sap-icon://wrench"
+      },{
+        "title": "Packing",
+        "time": "Date(1472960600000)",
+        "Icon": "sap-icon://product"
+      },{
+        "title": "Storage",
+        "time": "Date(1474777400000)",
+        "Icon": "sap-icon://database"
+      },{
+        "title": "Delivery",
+        "time": "Date(1477932200000)",
+        "Icon": "sap-icon://decision"
+      }],
+      "Locations": [
+        {
+          "x": "635",
+          "y": "560",
+          "wtime": "0",
+          "NS": "S",
+          "NC": "false"
+        },
+        {
+          "x": "813",
+          "y": "560",
+          "wtime": "3000",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "813",
+          "y": "400",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "true"
+        },
+        {
+          "x": "963",
+          "y": "400",
+          "wtime": "0",
+          "NS": "N",
+          "NC": "false"
+        },
+        {
+          "x": "813",
+          "y": "400",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "813",
+          "y": "560",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "false"
+        },
+        {
+          "x": "635",
+          "y": "560",
+          "wtime": "0",
+          "NS": "E",
+          "NC": "false"
+        }
+      ]
+    },{
+      "id": "Car5",
+      "width": "86",
+      "height": "40",
+      "Speed": "0.04",
+      "fill": "false",
+      "status": "working",
+      "remain": "78",
+      "ricon": "Canvas/img/u150.png",
+      "tid": "T096F576",
+      "ttype": "Goods Issue",
+      "sLoc": "Inbound Area",
+      "tLoc": "B-3",
+      "rid": "R16045",
+      "gid": "G012",
+      "rtype": "Mobile Rack",
+      "gtype": "EMC Server",
+      "GoodTimeLine": [{
+        "title": "Raw Material Reception",
+        "time": "Date(1470912200000)",
+        "Icon": "sap-icon://shipping-status"
+
+      },{
+        "title": "Inspection",
+        "time": "Date(1471234400000)",
+        "Icon": "sap-icon://action-settings"
+
+      },{
+        "title": "Assembling",
+        "time": "Date(1471647800000)",
+        "Icon": "sap-icon://wrench"
+      },{
+        "title": "Packing",
+        "time": "Date(1472457600000)",
+        "Icon": "sap-icon://product"
+      },{
+        "title": "Storage",
+        "time": "Date(1473547400000)",
+        "Icon": "sap-icon://database"
+      },{
+        "title": "Delivery",
+        "time": "Date(1477102200000)",
+        "Icon": "sap-icon://decision"
+      }],
+      "Locations": [
+        {
+          "x": "100",
+          "y": "520",
+          "wtime": "0",
+          "NS": "S",
+          "NC": "false"
+        },
+        {
+          "x": "520",
+          "y": "520",
+          "wtime": "2000",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "520",
+          "y": "180",
+          "wtime": "0",
+          "NS": "R",
+          "NC": "true"
+        },
+        {
+          "x": "613",
+          "y": "180",
+          "wtime": "0",
+          "NS": "N",
+          "NC": "false"
+        },
+        {
+          "x": "520",
+          "y": "180",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "520",
+          "y": "610",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "755",
+          "y": "610",
+          "wtime": "0",
+          "NS": "O",
+          "NC": "false"
+        },
+        {
+          "x": "855",
+          "y": "610",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "855",
+          "y": "520",
+          "wtime": "0",
+          "NS": "L",
+          "NC": "false"
+        },
+        {
+          "x": "100",
+          "y": "520",
+          "wtime": "0",
+          "NS": "E",
+          "NC": "false"
+        }]}
+      ]
+}

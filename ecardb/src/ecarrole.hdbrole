@@ -1,0 +1,57 @@
+{
+
+  "role":{
+
+  "name": "ECAR.ecardb::ecarrole",
+
+  "object_privileges":[
+  {
+
+  "name": "ECAR.ecardb::ecar.battery",
+
+  "type": "TABLE",
+
+  "privileges": [ "SELECT", "INSERT", "UPDATE", "DELETE" ]
+
+  },
+  {
+  "name":"ECAR.ecardb::ecar.vehicle",
+  
+  "type":"TABLE",
+  
+  "privileges": ["SELECT","INSERT","UPDATE","DELETE"]
+  },
+   {
+  "name":"ECAR.ecardb::ecar.customer",
+  
+  "type":"TABLE",
+  
+  "privileges": ["SELECT","INSERT","UPDATE","DELETE"]
+  },
+  {
+  "name":"ECAR.ecardb::ecar.service_order",
+  
+  "type":"TABLE",
+  
+  "privileges": ["SELECT","INSERT","UPDATE","DELETE"]
+  },
+  {
+  "name":"ECAR.ecardb::ecar.battery_vora_local",
+  
+  "type":"TABLE",
+  
+  "privileges": ["SELECT","INSERT","UPDATE"]
+  },
+  {
+  "name":"ECAR.ecardb::ecar.SOView",
+  
+  "type":"VIEW",
+  
+  "privileges": ["SELECT"]
+  }
+  
+  ]
+
+  }
+
+}

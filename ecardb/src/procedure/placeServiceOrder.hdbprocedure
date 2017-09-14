@@ -1,0 +1,48 @@
+PROCEDURE "ECAR.ecardb::placeServiceOrder" (
+IN new "ECAR.ecardb::ecar.SOView",
+OUT ERROR "ECAR.ecardb::TT_ERROR")
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   --READS SQL DATA 
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   declare sp_id string;
+   declare sp_customer_id string;
+   declare sp_create_time string;
+   declare sp_vehicle_id string;
+   declare sp_battery_id string;
+   declare sp_status string;
+   declare sp_service_center_name string;
+   declare sp_mechanic_name string;
+   declare sp_count integer;
+   
+   select ID, CUSTOMER_ID, CREATE_TIME,VEHICLE_ID,BATTERY_ID,STATUS,SERVICE_CENTER_NAME,MECHANIC_NAME 
+   into sp_id, sp_customer_id, sp_create_time,sp_vehicle_id,sp_battery_id,sp_status,sp_service_center_name, sp_mechanic_name from :new;
+   
+   select count(*) into sp_count from "ECAR.ecardb::ecar.SOView" where ID = :sp_id;
+   
+   if sp_id = '' then 
+	 ERROR = select 500 as HTTP_STATUS_CODE, 
+               'Invalid Service Order ID ' as ERROR_MESSAGE, 
+                     'Please provide a valid service order id' as DETAIL from "ECAR.ecardb::DUMMY";
+   else
+	if sp_count > 0 then 
+		ERROR = select 500 as HTTP_STATUS_CODE, 
+               'Service Order Exist ' as ERROR_MESSAGE, 
+                     'The service order already exists' as DETAIL from "ECAR.ecardb::DUMMY";
+	else
+		insert into "ECAR.ecardb::ecar.service_order" values(sp_id, sp_customer_id,sp_create_time, sp_vehicle_id, sp_battery_id,sp_status,sp_service_center_name,sp_mechanic_name);
+	end if;
+	end if;
+   
+   --if :sp_id != '' then
+	
+   --else
+	--insert into "ECAR.ecardb::ecar.service_order" values (sp_id, sp_customer_id, sp_car_id, sp_service_order_entry_id, sp_create_time);
+	--end if;
+   
+END

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="ECAR.ecardb.calview::vehiclebattery" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" visibility="internal" outputViewType="Projection" calculationScenarioType="TREE_BASED" cacheInvalidationPeriod="DAILY" enforceSqlExecution="false">
+<descriptions defaultDescription="vehiclebattery"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="ECAR.ecardb::ecar.vehicle">
+    <resourceUri>ECAR.ecardb::ecar.vehicle</resourceUri>
+  </DataSource>
+  <DataSource id="ECAR.ecardb::ecar.battery">
+    <resourceUri>ECAR.ecardb::ecar.battery</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="vehicle_battery" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="AGE" aggregationType="sum">
+        <descriptions defaultDescription="AGE"/>
+      </viewAttribute>
+      <viewAttribute id="COLOR">
+        <descriptions defaultDescription="COLOR"/>
+      </viewAttribute>
+      <viewAttribute id="VEHICLE_ID">
+        <descriptions defaultDescription="ID"/>
+      </viewAttribute>
+      <viewAttribute id="LAT" aggregationType="sum">
+        <descriptions defaultDescription="LAT"/>
+      </viewAttribute>
+      <viewAttribute id="LNG" aggregationType="sum">
+        <descriptions defaultDescription="LNG"/>
+      </viewAttribute>
+      <viewAttribute id="MAKE">
+        <descriptions defaultDescription="MAKE"/>
+      </viewAttribute>
+      <viewAttribute id="MILES" aggregationType="sum">
+        <descriptions defaultDescription="MILES"/>
+      </viewAttribute>
+      <viewAttribute id="MODEL">
+        <descriptions defaultDescription="MODEL"/>
+      </viewAttribute>
+      <viewAttribute id="SPEED" aggregationType="sum">
+        <descriptions defaultDescription="SPEED"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="CUSTOMER_ID">
+        <descriptions defaultDescription="CUSTOMER_ID"/>
+      </viewAttribute>
+      <viewAttribute id="CURRENT" aggregationType="sum">
+        <descriptions defaultDescription="CURRENT"/>
+      </viewAttribute>
+      <viewAttribute id="ECOMSUMPTION" aggregationType="sum">
+        <descriptions defaultDescription="ECOMSUMPTION"/>
+      </viewAttribute>
+      <viewAttribute id="BATTERY_ID">
+        <descriptions defaultDescription="ID"/>
+      </viewAttribute>
+      <viewAttribute id="SERIAL_NUMBER">
+        <descriptions defaultDescription="SERIAL_NUMBER"/>
+      </viewAttribute>
+      <viewAttribute id="SOC" aggregationType="sum">
+        <descriptions defaultDescription="SOC"/>
+      </viewAttribute>
+      <viewAttribute id="TEMPERATURE" aggregationType="sum">
+        <descriptions defaultDescription="TEMPERATURE"/>
+      </viewAttribute>
+      <viewAttribute id="VOLTAGE" aggregationType="sum">
+        <descriptions defaultDescription="VOLTAGE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="ECAR.ecardb::ecar.vehicle">
+      <mapping xsi:type="Calculation:AttributeMapping" target="AGE" source="AGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COLOR" source="COLOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VEHICLE_ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LAT" source="LAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LNG" source="LNG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MAKE" source="MAKE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MILES" source="MILES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MODEL" source="MODEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SPEED" source="SPEED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CUSTOMER_ID" source="CUSTOMER_ID"/>
+    </input>
+    <input node="ECAR.ecardb::ecar.battery">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENT" source="CURRENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ECOMSUMPTION" source="ECOMSUMPTION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BATTERY_ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SERIAL_NUMBER" source="SERIAL_NUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SOC" source="SOC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TEMPERATURE" source="TEMPERATURE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VOLTAGE" source="VOLTAGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VEHICLE_ID" source="partof.ID"/>
+    </input>
+    <joinAttribute name="VEHICLE_ID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="vehicle_battery">
+  <attributes>
+    <attribute id="AGE" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AGE"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="AGE"/>
+    </attribute>
+    <attribute id="COLOR" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COLOR"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="COLOR"/>
+    </attribute>
+    <attribute id="VEHICLE_ID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VEHICLE_ID"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="VEHICLE_ID"/>
+    </attribute>
+    <attribute id="LAT" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LAT"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="LAT"/>
+    </attribute>
+    <attribute id="LNG" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LNG"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="LNG"/>
+    </attribute>
+    <attribute id="MAKE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MAKE"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="MAKE"/>
+    </attribute>
+    <attribute id="MILES" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MILES"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="MILES"/>
+    </attribute>
+    <attribute id="MODEL" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MODEL"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="MODEL"/>
+    </attribute>
+    <attribute id="SPEED" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SPEED"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="SPEED"/>
+    </attribute>
+    <attribute id="STATUS" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STATUS"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="STATUS"/>
+    </attribute>
+    <attribute id="CUSTOMER_ID" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTOMER_ID"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="CUSTOMER_ID"/>
+    </attribute>
+    <attribute id="CURRENT" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENT"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="CURRENT"/>
+    </attribute>
+    <attribute id="ECOMSUMPTION" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ECOMSUMPTION"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="ECOMSUMPTION"/>
+    </attribute>
+    <attribute id="BATTERY_ID" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BATTERY_ID"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="BATTERY_ID"/>
+    </attribute>
+    <attribute id="SERIAL_NUMBER" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SERIAL_NUMBER"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="SERIAL_NUMBER"/>
+    </attribute>
+    <attribute id="SOC" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SOC"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="SOC"/>
+    </attribute>
+    <attribute id="TEMPERATURE" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEMPERATURE"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="TEMPERATURE"/>
+    </attribute>
+    <attribute id="VOLTAGE" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VOLTAGE"/>
+      <keyMapping columnObjectName="vehicle_battery" columnName="VOLTAGE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="vehicle_battery" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="235"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="ECAR.ecardb::ecar.vehicle" modelObjectNameSpace="vehicle_battery" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="ECAR.ecardb::ecar.battery" modelObjectNameSpace="vehicle_battery" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

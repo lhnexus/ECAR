@@ -1,0 +1,8 @@
+{
+  "ECAR.ecardb::DUMMY": {
+    "target": {
+      "object": "DUMMY",
+      "schema": "SYS"
+    }
+  }
+}
