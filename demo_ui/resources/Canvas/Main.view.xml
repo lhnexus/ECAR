@@ -35,7 +35,7 @@
             </l:BlockLayoutRow>
             <l:BlockLayoutRow >
                     <l:BlockLayoutCell id="cellleft" width="100%" class="sapUiNoContentPadding">
-                        <mvc:XMLView id="realchart" viewName="Canvas.Track.realchart" height="420px" class="sapUiNoMarginTop"/>
+                        <mvc:XMLView id="realchart" viewName="Canvas.Track.realchart" height="450px" class="sapUiNoMarginTop"/>
                     </l:BlockLayoutCell>
                     <!--<l:BlockLayoutCell id="cellright" class="sapUiNoMarginTop" width="40%">-->
                     <!--    <mvc:XMLView id="robotdetail" viewName="Canvas.Track.robotDetail" class="sapUiNoMarginTop"/>-->

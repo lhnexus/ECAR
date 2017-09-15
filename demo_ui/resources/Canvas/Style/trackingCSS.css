@@ -69,7 +69,8 @@
 }
 
 #Canvas_Main--realchart--page-cont .axis .tick line {
-    stroke: black;
+    stroke: grey;
+    opacity: 0.2;
 }
 
 #Canvas_Main--realchart--page-cont .axis .tick text {

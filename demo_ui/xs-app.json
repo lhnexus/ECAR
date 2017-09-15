@@ -1,24 +1,11 @@
 {
-	"welcomeFile": "webapp/index.html",
+	"welcomeFile": "index.html",
 	"authenticationMethod": "none",
-	"routes": [{
-"source": "^/getcars.xsodata/.*$",
-"destination": "eCar_user"
-},
-{
-"source": "^/vehicle.xsodata/.*$",
-"destination": "eCar_user"
-},
-{
-"source": "^/serviceorder.xsodata/.*$",
-"destination": "eCar_user"
-},
-{
-"source": "^/vehicleService.xsodata/.*$",
-"destination": "eCar_user"
-},
-{
-"source": "^/vehicleService.xsjs",
-"destination": "eCar_user"
-}]
+	"routes": [{	
+	 "source": "(.*)(.xsodata)",
+      "destination": "eCar_user", 
+      "authenticationType": "none",
+	  "csrfProtection": false
+		
+	}]
 }

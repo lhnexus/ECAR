@@ -35,6 +35,7 @@ modules:
         properties:
           name: eCar_user
           url: '~{url}'
+
 resources:
   - name: hdi-container
     properties:
