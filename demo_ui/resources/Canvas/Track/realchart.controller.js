@@ -105,13 +105,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 
 				var legendValues = [{
 					color: "orange",
-					text: "temperature"
+					text: "temperature(°C)"
 				}, {
 					color: "green",
-					text: "humidity"
+					text: "humidity(%)"
 				}, {
 					color: "blue",
-					text: "noise"
+					text: "noise(dB)"
 				}];
 
 				var legend1 = osvg.append("g")
@@ -183,7 +183,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 				//y axis setting
 				var yAxis = d3.svg.axis()
 					.orient("left")
-					.innerTickSize(-width)
+					.innerTickSize(-width - margin.right)
 					.outerTickSize(0)
 					.scale(y);
 
