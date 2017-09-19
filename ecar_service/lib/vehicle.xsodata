@@ -1,5 +1,5 @@
 service {
 	"ECAR.ecardb::ecar.vehicle" as "vehicle";
 	//"ECAR.ecardb::vehiclebattery" as "vehiclebattery";
-	"ECAR.ecardb.calview::vehicleInfo" as "vehicleInfo" keys generate local "RD_ID";//vehicle, battery, customer
+	"ECAR.ecardb.calview::vehicleData" as "vehicleInfo" keys generate local "RD_ID";//vehicle, battery, customer
 }

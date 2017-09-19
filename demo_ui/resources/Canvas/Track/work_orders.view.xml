@@ -6,7 +6,7 @@
 				rows="{/WorkOrders}"
 				title="Work Orders"
 				selectionMode="MultiToggle"
-				visibleRowCount="7">
+				visibleRowCount="5">
 				<columns>
 					<Column width="15rem">
 						<m:Label text="Order ID" />

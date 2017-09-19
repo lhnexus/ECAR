@@ -72,6 +72,7 @@ context ecar {
 
     entity sensor {
         key ID        : String(100);
+        key BID		  : String(100);
         key TIMESTAMP : UTCTimestamp;
             S1        : Decimal(20, 2);
             S2        : Decimal(20, 2);
@@ -85,6 +86,7 @@ context ecar {
         select from sensor
         {
         	ID,
+        	BID,
         	TIMESTAMP,
         	S1,
         	S2,
@@ -93,4 +95,5 @@ context ecar {
         	S5,
         	S6
         } order by TIMESTAMP desc;
+       
 };

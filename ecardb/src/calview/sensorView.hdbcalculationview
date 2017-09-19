@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="ECAR.ecardb.calview::sensorView" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="DAILY" enforceSqlExecution="false">
+<descriptions defaultDescription="sensorView"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="ECAR.ecardb::ecar.sensor">
+    <resourceUri>ECAR.ecardb::ecar.sensor</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="ECAR.ecardb::ecar.sensor">
+  <attributes>
+    <attribute id="ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="ecar.sensor" columnName="ID"/>
+    </attribute>
+    <attribute id="BID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BID"/>
+      <keyMapping columnObjectName="ecar.sensor" columnName="BID"/>
+    </attribute>
+    <attribute id="TIMESTAMP" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TIMESTAMP"/>
+      <keyMapping columnObjectName="ecar.sensor" columnName="TIMESTAMP"/>
+    </attribute>
+    <attribute id="S1" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="S1"/>
+      <keyMapping columnObjectName="ecar.sensor" columnName="S1"/>
+    </attribute>
+    <attribute id="S2" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="S2"/>
+      <keyMapping columnObjectName="ecar.sensor" columnName="S2"/>
+    </attribute>
+    <attribute id="S3" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="S3"/>
+      <keyMapping columnObjectName="ecar.sensor" columnName="S3"/>
+    </attribute>
+    <attribute id="S4" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="S4"/>
+      <keyMapping columnObjectName="ecar.sensor" columnName="S4"/>
+    </attribute>
+    <attribute id="S5" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="S5"/>
+      <keyMapping columnObjectName="ecar.sensor" columnName="S5"/>
+    </attribute>
+    <attribute id="S6" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="S6"/>
+      <keyMapping columnObjectName="ecar.sensor" columnName="S6"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario> 

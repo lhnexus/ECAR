@@ -25,6 +25,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 			_initchart: function(that) {
 
 				var margin = {
+					stop: 0,
 					top: 20,
 					right: 50,
 					bottom: 30,
@@ -82,18 +83,33 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 					});
 				//y axis padding setting	
 				var padding = 100;
-				var imargin = margin.left + padding;
+				var imargin = margin.left + margin.bottom;
 				var osvg = d3.select('#Canvas_Main--realchart--page-cont').append('svg')
 					.attr("width", width + margin.left + margin.right)
 					.attr("height", height + margin.top + margin.bottom)
 					.attr("overflow", "visible")
-					.attr("transform", "translate(" + imargin + "," + margin.top + ")");
+					.attr("transform", "translate(" + imargin + "," + margin.stop + ")");
 
 				var svg = osvg.append('svg')
 					.attr('class', 'chart')
 					.attr("width", width + margin.left + margin.right)
 					.attr("height", height + margin.top + margin.bottom)
-					.attr("transform", "translate(0," + margin.top + ")");
+					.attr("transform", "translate(0," + margin.stop + ")");
+					
+				//add line for now
+				svg.append("line")
+				.attr("x1",width + margin.bottom)
+				.attr("y1", height)
+				.attr("x2", width + margin.bottom)
+				.attr("y2", 0)
+				.style("stroke", "black");
+				
+				//add now text
+				svg.append("text")
+				.attr("x",width + margin.bottom/2)
+				.attr("y",height+ margin.bottom/2)
+				.attr("overflow","visible")
+				.text("Now");
 
 				//add legend
 				var lengendx = 5;
@@ -210,7 +226,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 					var s1;
 					var s2;
 					var s3;
-					that.getView().getModel("odata").read("/sensor?$top=1", {
+					that.getView().getModel("odata").read("/sensor?$filter=(ID eq 'LSGGH59L9DS157185' and BID eq 'SEGMG20160101')&$top=1", {
 						async: false,
 						success: function(oData, response) {
 
