@@ -1,6 +1,6 @@
 <mvc:View xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:base="sap.ui.base"
           controllerName="Canvas.Main">
-    <Page title="EWarehouse" width="1834px" enableScrolling="true">
+    <Page title="SAP Predictive Maintenance Service" width="1834px" enableScrolling="true">
         <l:BlockLayout id="statisticsBlockLayout" background="Dashboard">
             <l:BlockLayoutRow>
                 <l:BlockLayoutCell>
@@ -37,7 +37,7 @@
                     <l:BlockLayoutCell id="cellleft" width="50%" class="sapUiNoContentPadding">
                         <mvc:XMLView id="realchart" viewName="Canvas.Track.realchart" height="520px" class="sapUiNoMarginTop"/>
                     </l:BlockLayoutCell>
-                    <l:BlockLayoutCell id="cellright" class="sapUiNoMarginTop" width="50%">
+                    <l:BlockLayoutCell id="cellright" class="sapUiNoContentPadding" width="50%">
                     	<mvc:XMLView id="predict" viewName="Canvas.Track.predict" height="520px" class="sapUiNoMarginTop"/>
                     </l:BlockLayoutCell>
             </l:BlockLayoutRow>

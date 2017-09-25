@@ -64,6 +64,11 @@
 
 
 /*css for real time animating*/
+#Canvas_Main--realchart--page-cont text {
+     fill: black;
+    font-size: 0.7em;
+}
+
 #Canvas_Main--realchart--page-cont .axis {
     stroke-width: 1;
 }
@@ -84,6 +89,43 @@
 }
 
 #Canvas_Main--realchart--page-cont .group {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5;
+}
+
+
+/*css for predict animating*/
+/*#Canvas_Main--predict--page-cont text {*/
+/*     fill: red;*/
+/*    font-size: 0.4em;*/
+/*}*/
+
+#Canvas_Main--predict--page-cont .legend text {
+     fill: black;
+    font-size: 0.7em;
+}
+
+#Canvas_Main--predict--page-cont .axis {
+    stroke-width: 1;
+}
+
+#Canvas_Main--predict--page-cont .axis .tick line {
+    stroke: grey;
+    opacity: 0.2;
+}
+
+#Canvas_Main--predict--page-cont .axis .tick text {
+    fill: black;
+    font-size: 0.7em;
+}
+
+#Canvas_Main--predict--page-cont .axis .domain {
+    fill: none;
+    stroke: black;
+}
+
+#Canvas_Main--predict--page-cont .group {
     fill: none;
     stroke: black;
     stroke-width: 1.5;

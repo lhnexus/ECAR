@@ -5,13 +5,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 		return Controller.extend("Canvas.Track.predict", {
 			onInit: function() {
 
-				var oModel = new sap.ui.model.json.JSONModel();
 				var oRModel = new sap.ui.model.odata.v2.ODataModel("/getSensorData.xsodata", true);
-
-				oModel.loadData("Canvas/mockserver/data.json");
-
-				this.getView().setModel(oModel, "jdata");
-
 				this.getView().setModel(oRModel, "odata");
 
 			},
@@ -44,25 +38,25 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 				var groups = {
 					current: {
 						value: 0,
-						color: 'orange',
-						data: d3.range(limit).map(function() {
-							return 0;
-						})
-					},
-					target: {
-						value: 0,
-						color: 'green',
-						data: d3.range(limit).map(function() {
-							return 0;
-						})
-					},
-					output: {
-						value: 0,
-						color: 'blue',
+						color: 'grey',
 						data: d3.range(limit).map(function() {
 							return 0;
 						})
 					}
+					// target: {
+					// 	value: 0,
+					// 	color: 'green',
+					// 	data: d3.range(limit).map(function() {
+					// 		return 0;
+					// 	})
+					// },
+					// output: {
+					// 	value: 0,
+					// 	color: 'blue',
+					// 	data: d3.range(limit).map(function() {
+					// 		return 0;
+					// 	})
+					// }
 				};
 
 				var x = d3.time.scale()
@@ -96,20 +90,43 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 					.attr("height", height + margin.top + margin.bottom)
 					.attr("transform", "translate(0," + margin.stop + ")");
 					
-				//add line for now
-				svg.append("line")
-				.attr("x1",width + margin.bottom)
-				.attr("y1", height)
-				.attr("x2", width + margin.bottom)
-				.attr("y2", 0)
-				.style("stroke", "black");
-				
-				//add now text
-				svg.append("text")
-				.attr("x",width + margin.bottom/2)
-				.attr("y",height+ margin.bottom/2)
+				//add axis y text
+				osvg.append("text")
+				.attr("x",0)
+				.attr("y",200)
 				.attr("overflow","visible")
-				.text("Now");
+				.attr("transform", "rotate(-90)")
+				.attr("transform","translate(-250,-250)")
+				.style("fill","black")
+				.style("font-size","0.7em")
+				.text("Probability(%)");
+					
+				//add line for estimated warning
+				svg.append("line")
+				.attr("x1",0)
+				.attr("y1", 103)
+				.attr("x2", width + margin.bottom*2)
+				.attr("y2", 103)
+				.style("stroke", "red")
+				.style("stroke-width",2);
+				
+				//add estimated warning text
+				osvg.append("text")
+				.attr("x",width + margin.bottom*2)
+				.attr("y",103)
+				.attr("overflow","visible")
+				.style("fill","red")
+				.style("font-size","0.4em")
+				.text("Estimated Warning");
+				
+				//add estimated warning rect
+				svg.append("rect")
+				.attr("x",0)
+				.attr("y",0)
+				.attr("width",width + margin.bottom*2)
+				.attr("height",103)
+				.attr('fill', 'red')
+				.style("fill-opacity",0.1);
 
 				//add legend
 				var lengendx = 5;
@@ -120,11 +137,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 				var padding = 200;
 
 				var legendValues = [{
-					color: "orange",
-					text: "temperature(°C)"
+					color: "grey",
+					text: "failure probability(%)"
 				}, {
-					color: "green",
-					text: "humidity(%)"
+					color: "red",
+					text: "estimated warning threshold(%)"
 				}, {
 					color: "blue",
 					text: "noise(dB)"
@@ -154,7 +171,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 					.attr("class", "legend");
 
 				legend2.append("rect")
-					.attr("x", lengendx + padding)
+					.attr("x", lengendx + padding*1.5)
 					.attr("y", lengendy - 5)
 					.attr("width", lengendw)
 					.attr("height", lengendh)
@@ -164,31 +181,32 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 					});
 
 				legend2.append("text")
-					.attr("x", lengendx + padding + txtpadding)
+					.attr("x", lengendx + padding*1.5 + txtpadding)
 					.attr("y", lengendy)
 					.text(function(d) {
 						return legendValues[1].text;
 					});
 
-				var legend3 = osvg.append("g")
-					.attr("class", "legend");
+				// var legend3 = osvg.append("g")
+				// 	.attr("class", "legend");
 
-				legend3.append("rect")
-					.attr("x", lengendx + padding * 2)
-					.attr("y", lengendy - 5)
-					.attr("width", lengendw)
-					.attr("height", lengendh)
-					//.attr("fill","blue");
-					.style("fill", function(d) {
-						return legendValues[2].color;
-					});
+				// legend3.append("rect")
+				// 	.attr("x", lengendx + padding * 2)
+				// 	.attr("y", lengendy - 5)
+				// 	.attr("width", lengendw)
+				// 	.attr("height", lengendh)
+				// 	//.attr("fill","blue");
+				// 	.style("fill", function(d) {
+				// 		return legendValues[2].color;
+				// 	});
 
-				legend3.append("text")
-					.attr("x", lengendx + padding * 2 + txtpadding)
-					.attr("y", lengendy)
-					.text(function(d) {
-						return legendValues[2].text;
-					});
+				// legend3.append("text")
+				// 	.attr("x", -50)
+				// 	.attr("y", 100)
+				// 	.attr("orient","vertical")
+				// 	.text(function(d) {
+				// 		return legendValues[2].text;
+				// 	});
 
 				//x axis setting
 				var axis = svg.append('g')
@@ -241,12 +259,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 								if (name == 'current') {
 									//console.log(s1);
 									group.data.push(s1);
-								} else if (name == 'target') {
-									group.data.push(s2);
-								} else {
-									// group.data.push(20 + Math.random() * 100);
-									group.data.push(s3);
 								}
+								// } else if (name == 'target') {
+								// 	group.data.push(s2);
+								// } else {
+								// 	// group.data.push(20 + Math.random() * 100);
+								// 	group.data.push(s3);
+								// }
 
 								group.path.attr('d', line);
 							}

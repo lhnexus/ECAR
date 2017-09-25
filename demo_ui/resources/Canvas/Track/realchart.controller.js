@@ -4,14 +4,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 
 		return Controller.extend("Canvas.Track.realchart", {
 			onInit: function() {
-
-				var oModel = new sap.ui.model.json.JSONModel();
 				var oRModel = new sap.ui.model.odata.v2.ODataModel("/getSensorData.xsodata", true);
-
-				oModel.loadData("Canvas/mockserver/data.json");
-
-				this.getView().setModel(oModel, "jdata");
-
 				this.getView().setModel(oRModel, "odata");
 
 			},
