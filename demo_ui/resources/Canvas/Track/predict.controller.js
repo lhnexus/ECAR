@@ -120,7 +120,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 				.text("Estimated Warning");
 				
 				//add estimated warning rect
-				svg.append("rect")
+				var w_rect = svg.append("rect")
 				.attr("x",0)
 				.attr("y",0)
 				.attr("width",width + margin.bottom*2)
@@ -238,6 +238,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 						.attr('class', name + ' group')
 						.style('stroke', group.color);
 				}
+				
+				function warning_light(){
+					w_rect.style('fill-opacity',1);
+				}
+				
+				function warning_dark(){
+					w_rect.style('fill-opacity',0.1);
+				}
 
 				function tick() {
 					now = new Date();
@@ -259,6 +267,16 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 								if (name == 'current') {
 									//console.log(s1);
 									group.data.push(s1);
+									
+									if(s1>70){
+										setTimeout(warning_light, 3000);
+										setTimeout(warning_dark, 1000);
+										group.path.style('stroke', "red");
+									}
+									else{
+										w_rect.style("fill-opacity",0.1);
+										group.path.style('stroke', group.color);
+									}
 								}
 								// } else if (name == 'target') {
 								// 	group.data.push(s2);
