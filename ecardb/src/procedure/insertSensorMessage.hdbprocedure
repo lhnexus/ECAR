@@ -1,0 +1,25 @@
+PROCEDURE "ECAR.ecardb::insertSensorMessage" ( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   	declare ctime timestamp;
+	declare s1 double;
+	declare s2 double;
+	declare s3 double;
+	declare s4 double;
+	declare s5 double;
+	declare s6 double;
+	SELECT CURRENT_TIMESTAMP into ctime FROM "ECAR.ecardb::DUMMY";
+	SELECT RAND()*100 into s1 FROM "ECAR.ecardb::DUMMY";
+	SELECT RAND()*100 into s2 FROM "ECAR.ecardb::DUMMY";
+	SELECT RAND()*100 into s3 FROM "ECAR.ecardb::DUMMY";
+	SELECT RAND()*100 into s4 FROM "ECAR.ecardb::DUMMY";
+	SELECT RAND()*100 into s5 FROM "ECAR.ecardb::DUMMY";
+	SELECT RAND()*100 into s6 FROM "ECAR.ecardb::DUMMY";
+    insert into "ECAR.ecardb::ecar.sensor" VALUES('LSGGH59L9DS157185','SEGMG20160101', :ctime, :s1, :s2, :s3, :s4, :s5, :s6);
+END

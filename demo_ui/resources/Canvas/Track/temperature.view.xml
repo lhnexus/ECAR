@@ -9,7 +9,7 @@
 							<core:Icon id="temperature" src="sap-icon://temperature" class="sapUiMediumMarginEnd sapUiTinyMarginTop" size="2rem" press="handleStethoscopePress">
 							</core:Icon>
 						</m:FlexBox>
-						<m:NumericContent id="temperaturenum" value="{/Warehouse/Temperature}" withMargin="false"/>
+						<m:NumericContent id="temperaturenum" value="{SensorModel>/Sensor/S1}" withMargin="false"/>
 					</l:HorizontalLayout >
 				</l:content>
 			</l:VerticalLayout>

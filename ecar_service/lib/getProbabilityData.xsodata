@@ -1,0 +1,3 @@
+service {
+	"ECAR.ecardb::ecar.probabilityView" as "probability";
+}

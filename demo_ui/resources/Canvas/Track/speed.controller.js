@@ -2,19 +2,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 	function(Controller, MessageToast) {
 		"use strict";
 
-		return Controller.extend("Canvas.Track.humidity", {
+		return Controller.extend("Canvas.Track.speed", {
 			onInit: function() {
-			
+
 				// var oRModel = new sap.ui.model.odata.v2.ODataModel("/getSensorData.xsodata", true);
 				// this.getView().setModel(oRModel, "odata");
-				//var oModel = sap.ui.getCore().getModel("SensorModel");
-
-				// var oModel = new sap.ui.model.json.JSONModel();
-				// //var oRModel = new sap.ui.model.odata.v2.ODataModel("/iotmms/v1/api/http/app.svc");
-				// oModel.loadData("Canvas/mockserver/data.json");
-				// oModel.attachRequestCompleted(calRack);
-				// this.getView().setModel(oModel, "jdata");
-				// //this.getView().setModel(oRModel, "odata");
 
 			},
 
@@ -28,6 +20,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 			_loadData: function(that) {
 
 				setInterval(function() {
+
+					// that.oRModel.attachMetadataLoaded(null, function() {
+					// 	var oMetadata = that.oRModel.getServiceMetadata();
+					// 	console.log(oMetadata);
+					// }, null);
 
 					// var filter = new Array();
 					// var sorter = new Array();
@@ -43,9 +40,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 						success: function(oData, response) {
 							//var len = oData.results.length;
 							//var time = oData.results[0].C_TIMESTAMP;
-							var sound = oData.results[0].S3;
-							var snum = that.getView().byId("soundnum");
-							snum.setValue(parseFloat(sound));
+							var speed = oData.results[0].S4;
+							var snum = that.getView().byId("speednum");
+							snum.setValue(parseFloat(speed));
 							//console.log(time);
 							//console.log(parseFloat(temperature));
 						},
@@ -55,9 +52,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 							//console.log(oMetadata);
 					}, null);
 
-
 					// var num = Math.floor(Math.random() * 10);
-					// var hnum = that.getView().byId("humiditynum");
+					// var hnum = that.getView().byId("temperaturenum");
 					// hnum.setValue(num);
 
 				}, 2000);

@@ -9,7 +9,7 @@
 							<core:Icon id="humidity" src="sap-icon://measuring-point" class="sapUiMediumMarginEnd sapUiTinyMarginTop" size="2rem" press="handleStethoscopePress">
 							</core:Icon>
 						</m:FlexBox>
-						<m:NumericContent id="humiditynum" value="{/Warehouse/Humidity}" withMargin="false"/>
+						<m:NumericContent id="humiditynum" value="{SensorModel>/Sensor/S2}" withMargin="false"/>
 					</l:HorizontalLayout >
 				</l:content>
 			</l:VerticalLayout>

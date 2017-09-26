@@ -4,22 +4,23 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 
 		return Controller.extend("Canvas.Track.temperature", {
 			onInit: function() {
+				// var oRModel = new sap.ui.model.odata.v2.ODataModel("/getSensorData.xsodata", true);
+				// this.getView().setModel(oRModel, "odata");
+				// var oModel = new sap.ui.model.json.JSONModel();
+				// //var oRModel = new sap.ui.model.odata.v2.ODataModel("/iotmms/v1/api/http/app.svc");
 
-				var oModel = new sap.ui.model.json.JSONModel();
-				//var oRModel = new sap.ui.model.odata.v2.ODataModel("/iotmms/v1/api/http/app.svc");
+				// oModel.loadData("Canvas/mockserver/data.json");
 
-				oModel.loadData("Canvas/mockserver/data.json");
-
-				oModel.attachRequestCompleted(calRack);
-				this.getView().setModel(oModel, "jdata");
-				//this.getView().setModel(oRModel, "odata");
+				// oModel.attachRequestCompleted(calRack);
+				// this.getView().setModel(oModel, "jdata");
+				// //this.getView().setModel(oRModel, "odata");
 
 			},
 
 			onAfterRendering: function() {
 
-				var that = this;
-				that._loadData(that);
+				// var that = this;
+				// that._loadData(that);
 
 			},
 
@@ -39,28 +40,28 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 					// sorter.push(sorting);
 					// filter.push(filtering);
 
-					// that.getView().getModel("odata").read("/T_IOT_079BCC4BE4FD6487DE4B", {
-					// 	filters: filter,
-					// 	sorters: sorter,
-					// 	async: false,
-					// 	success: function(oData, response) {
-					// 		//var len = oData.results.length;
-					// 		//var time = oData.results[0].C_TIMESTAMP;
-					// 		var temperature = oData.results[0].C_TEMPERATURE;
-					// 		var hnum = that.getView().byId("temperaturenum");
-					// 		hnum.setValue(parseFloat(temperature));
-					// 		//console.log(time);
-					// 		//console.log(parseFloat(temperature));
-					// 	},
-					// 	failed: function(oData, response) {
-					// 			alert("Failed to get InputHelpValues from service!");
-					// 		}
-					// 		//console.log(oMetadata);
-					// }, null);
+					that.getView().getModel("odata").read("/sensor?$filter=(ID eq 'LSGGH59L9DS157185' and BID eq 'SEGMG20160101')&$top=1", {
+						// filters: filter,
+						// sorters: sorter,
+						async: false,
+						success: function(oData, response) {
+							//var len = oData.results.length;
+							//var time = oData.results[0].C_TIMESTAMP;
+							var temperature = oData.results[0].S1;
+							var snum = that.getView().byId("temperaturenum");
+							snum.setValue(parseFloat(temperature));
+							//console.log(time);
+							//console.log(parseFloat(temperature));
+						},
+						failed: function(oData, response) {
+								alert("Failed to get InputHelpValues from service!");
+							}
+							//console.log(oMetadata);
+					}, null);
 
-					var num = Math.floor(Math.random() * 10);
-					var hnum = that.getView().byId("temperaturenum");
-					hnum.setValue(num);
+					// var num = Math.floor(Math.random() * 10);
+					// var hnum = that.getView().byId("temperaturenum");
+					// hnum.setValue(num);
 
 				}, 2000);
 

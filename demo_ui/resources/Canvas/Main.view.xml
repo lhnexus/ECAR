@@ -1,14 +1,14 @@
 <mvc:View xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:base="sap.ui.base"
           controllerName="Canvas.Main">
-    <Page title="SAP Predictive Maintenance Service" width="1834px" enableScrolling="true">
+    <Page title="SAP Predictive Maintenance and Service" width="1834px" enableScrolling="true">
         <l:BlockLayout id="statisticsBlockLayout" background="Dashboard">
             <l:BlockLayoutRow>
                 <l:BlockLayoutCell>
                     <l:HorizontalLayout>
                         <l:content>
-                            <mvc:XMLView id="rackNum" viewName="Canvas.Track.rack_num" class="sapUiNoMarginTop" width="320px" height="100px"/>
-                            <mvc:XMLView id="whCap" viewName="Canvas.Track.wh_capacity" class="sapUiNoMarginTop" width="320px" height="100px"/>
-                            <mvc:XMLView id="robotUt" viewName="Canvas.Track.robot_ut" class="sapUiNoMarginTop" width="320px" height="100px"/>
+                            <mvc:XMLView id="voltageNum" viewName="Canvas.Track.voltage" class="sapUiNoMarginTop" width="320px" height="100px"/>
+                            <mvc:XMLView id="speedNum" viewName="Canvas.Track.speed" class="sapUiNoMarginTop" width="320px" height="100px"/>
+                            <mvc:XMLView id="soundNum" viewName="Canvas.Track.sound" class="sapUiNoMarginTop" width="320px" height="100px"/>
                             <mvc:XMLView id="temperature" viewName="Canvas.Track.temperature" class="sapUiNoMarginTop" width="320px" height="100px"/>
                             <mvc:XMLView id="humidity" viewName="Canvas.Track.humidity" class="sapUiNoMarginTop" width="320px" height="100px"/>
                             <l:VerticalLayout>

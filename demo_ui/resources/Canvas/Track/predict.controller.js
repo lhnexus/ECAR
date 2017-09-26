@@ -5,7 +5,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 		return Controller.extend("Canvas.Track.predict", {
 			onInit: function() {
 
-				var oRModel = new sap.ui.model.odata.v2.ODataModel("/getSensorData.xsodata", true);
+				var oRModel = new sap.ui.model.odata.v2.ODataModel("/getProbabilityData.xsodata", true);
 				this.getView().setModel(oRModel, "odata");
 
 			},
@@ -108,7 +108,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 				.attr("x2", width + margin.bottom*2)
 				.attr("y2", 103)
 				.style("stroke", "red")
-				.style("stroke-width",2);
+				.style("stroke-dasharray","5,5");
 				
 				//add estimated warning text
 				osvg.append("text")
@@ -116,8 +116,16 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 				.attr("y",103)
 				.attr("overflow","visible")
 				.style("fill","red")
-				.style("font-size","0.4em")
-				.text("Estimated Warning");
+				.style("font-size","0.6em")
+				.text("Estimated");
+				
+				osvg.append("text")
+				.attr("x",width + margin.bottom*2)
+				.attr("y",115)
+				.attr("overflow","visible")
+				.style("fill","red")
+				.style("font-size","0.6em")
+				.text("Warning");
 				
 				//add estimated warning rect
 				var w_rect = svg.append("rect")
@@ -249,16 +257,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 
 				function tick() {
 					now = new Date();
-					var s1;
-					var s2;
-					var s3;
-					that.getView().getModel("odata").read("/sensor?$filter=(ID eq 'LSGGH59L9DS157185' and BID eq 'SEGMG20160101')&$top=1", {
+					var prob;
+					that.getView().getModel("odata").read("/probability?$filter=(ID eq 'LSGGH59L9DS157185' and BID eq 'SEGMG20160101')&$top=1", {
 						async: false,
 						success: function(oData, response) {
 
-							s1 = oData.results[0].S1;
-							s2 = oData.results[0].S2;
-							s3 = oData.results[0].S3;
+							prob = oData.results[0].PROB;
 
 							// Add new values
 							for (var name in groups) {
@@ -266,9 +270,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 								//group.data.push(group.value) // Real values arrive at irregular intervals
 								if (name == 'current') {
 									//console.log(s1);
-									group.data.push(s1);
+									group.data.push(prob);
 									
-									if(s1>70){
+									if(prob>70){
 										setTimeout(warning_light, 3000);
 										setTimeout(warning_dark, 1000);
 										group.path.style('stroke', "red");

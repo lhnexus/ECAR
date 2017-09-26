@@ -95,5 +95,23 @@ context ecar {
         	S5,
         	S6
         } order by TIMESTAMP desc;
+        
+    entity probability {
+        key ID        : String(100);
+        key BID		  : String(100);
+        key TIMESTAMP : UTCTimestamp;
+            PROB      : Decimal(20, 2);
+            THRESH    : Decimal(20, 2);
+    };
+    
+    define view probabilityView as
+        select from probability
+        {
+        	ID,
+        	BID,
+        	TIMESTAMP,
+        	PROB,
+        	THRESH
+        } order by TIMESTAMP desc;
        
 };
