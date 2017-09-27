@@ -64,7 +64,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "./Util/svgUt
 
 				setInterval(function() {
 
-					that.getView().getModel("odata").read("/sensor?$filter=(ID eq 'LSGGH59L9DS157185' and BID eq 'SEGMG20160101')&$top=1", {
+					that.getView().getModel("odata").read("/simsensor?$filter=(ID eq 'LSGGH59L9DS157185' and BID eq 'SEGMG20160101')&$top=1", {
 						// filters: filter,
 						// sorters: sorter,
 						async: false,

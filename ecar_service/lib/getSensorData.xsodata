@@ -1,3 +1,4 @@
 service {
 	"ECAR.ecardb::ecar.sensorView" as "sensor";
+	"ECAR.ecardb::ecar.simsensorView" as "simsensor";
 }

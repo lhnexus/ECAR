@@ -96,6 +96,32 @@ context ecar {
         	S6
         } order by TIMESTAMP desc;
         
+    entity simsensor {
+        key ID        : String(100);
+        key BID		  : String(100);
+        key TIMESTAMP : UTCTimestamp;
+            S1        : Decimal(20, 2);
+            S2        : Decimal(20, 2);
+            S3        : Decimal(20, 2);
+            S4        : Decimal(20, 2);
+            S5        : Decimal(20, 2);
+            S6        : Decimal(20, 2);
+    };
+    
+    define view simsensorView as
+        select from simsensor
+        {
+        	ID,
+        	BID,
+        	TIMESTAMP,
+        	S1,
+        	S2,
+        	S3,
+        	S4,
+        	S5,
+        	S6
+        } order by TIMESTAMP desc;
+        
     entity probability {
         key ID        : String(100);
         key BID		  : String(100);
