@@ -32,8 +32,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 						// sorters: sorter,
 						async: false,
 						success: function(oData, response) {
-						//var ljmodel = new sap.ui.model.json.JSONModel(oData);
-							lmodel.oData.d.setData(oData);
+						var ljmodel = new sap.ui.model.json.JSONModel(oData);
+							lmodel.setData(oData);
 						},
 						failed: function(oData, response) {
 								alert("Failed to get InputHelpValues from service!");
