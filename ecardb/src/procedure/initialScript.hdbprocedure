@@ -1,0 +1,37 @@
+PROCEDURE "ECAR.ecardb::initialScript" ( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   --- prepared demo script ---
+	delete from "ECAR.ecardb::ecar.vehicle";
+	insert into "ECAR.ecardb::ecar.vehicle" values('LSGGH59L9DS157195','Mercedes-Benz','S600',1,12600,'Rock Black',150, 31.248454,121.478402,'GREEN', 'i039497');
+	insert into "ECAR.ecardb::ecar.vehicle" values('LSGGH59L9DS157115','Mercedes-Benz','W140',2,22600,'Rock Black',150, 31.241607, 121.529925,'GREEN', 'i323921');
+	insert into "ECAR.ecardb::ecar.vehicle" values('LSGGH59L9DS157125','Cadillac','XTS',3,32600,'BLACK',150, 31.230895,121.489797,'WARNING', 'i324442');
+	insert into "ECAR.ecardb::ecar.vehicle" values('LSGGH59L9DS157185','Cadillac','XTS',4,42600,'BLACK',150, 31.2221356, 121.4931133,'MALFUNCTION', 'i334966');
+	--31.0697077,121.5130758   上海闵星奔驰 4S店
+	
+	
+	delete from "ECAR.ecardb::ecar.customer";
+	insert into "ECAR.ecardb::ecar.customer" values('i334966','1001,Chenhui Road,Pudong district,Shanghai','tim.zhang03@sap.com','','Tim Zhang');
+	insert into "ECAR.ecardb::ecar.customer" values('i324442','1001,Chenhui Road,Pudong district,Shanghai','sha.liu01@sap.com','','Liu Sha');
+	
+	
+	delete from "ECAR.ecardb::ecar.battery";
+	insert into "ECAR.ecardb::ecar.battery" values('SEGMG20160101',95,6.1,80,-98,2001.3,'SE_GMG20160101','LSGGH59L9DS157185');
+	insert into "ECAR.ecardb::ecar.battery" values('SEGMG20160102',101,6.2,82,-68,2002.4,'SE_GMG20160102','LSGGH59L9DS157185');
+	insert into "ECAR.ecardb::ecar.battery" values('SEGMG20160103',70,6.2,83,-88,2015.1,'SE_GMG20160103','LSGGH59L9DS157185');
+	insert into "ECAR.ecardb::ecar.battery" values('SEGMG20160104',80,6.1,84,-91,2035.3,'SE_GMG20160104','LSGGH59L9DS157185');
+	
+	
+	delete from "ECAR.ecardb::ecar.service_order";
+	insert into "ECAR.ecardb::ecar.service_order" values('20170418132167', 'i334966','LSGGH59L9DS157185','SEGMG20160101','20170426132136','TOBEREPLACED','Minghang 4S center','Justin Zhang');
+	insert into "ECAR.ecardb::ecar.service_order" values('20170311132162', 'i334966','LSGGH59L9DS157185','SEGMG20160102','20170513132145','REPLACED','Minghang 4S center','Justin Zhang');
+	insert into "ECAR.ecardb::ecar.service_order" values('20170112132134', 'i334966','LSGGH59L9DS157185','SEGMG20160103','20170222162132','REPLACED','Minghang 4S center','Justin Zhang');
+	insert into "ECAR.ecardb::ecar.service_order" values('20170437132133', 'i334966','LSGGH59L9DS157185','SEGMG20160104','20170324132131','REPLACED','Minghang 4S center','Justin Zhang');
+
+END
