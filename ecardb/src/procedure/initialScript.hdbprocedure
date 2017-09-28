@@ -33,5 +33,9 @@ BEGIN
 	insert into "ECAR.ecardb::ecar.service_order" values('20170311132162', 'i334966','LSGGH59L9DS157185','SEGMG20160102','20170513132145','REPLACED','Minghang 4S center','Justin Zhang');
 	insert into "ECAR.ecardb::ecar.service_order" values('20170112132134', 'i334966','LSGGH59L9DS157185','SEGMG20160103','20170222162132','REPLACED','Minghang 4S center','Justin Zhang');
 	insert into "ECAR.ecardb::ecar.service_order" values('20170437132133', 'i334966','LSGGH59L9DS157185','SEGMG20160104','20170324132131','REPLACED','Minghang 4S center','Justin Zhang');
+	
+	delete from "ECAR.ecardb::ecar.sensor";
+	delete from "ECAR.ecardb::ecar.simsensor";
+	delete from "ECAR.ecardb::ecar.probability";
 
 END

@@ -248,7 +248,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 				}
 				
 				function warning_light(){
-					w_rect.style('fill-opacity',1);
+					w_rect.style('fill-opacity',0.6);
 				}
 				
 				function warning_dark(){
