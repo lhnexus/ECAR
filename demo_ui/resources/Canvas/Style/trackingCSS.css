@@ -23,6 +23,21 @@
 
 
 /*}*/
+#__page0-cont .sapMOH {
+    padding: 0.4rem;
+}
+
+#__header0-titlediv .sapMOHIcon .sapMImg {
+    max-height: 3rem;
+    max-width: 20rem;
+}
+
+#__header0-titlediv .sapMOHTitle {
+    margin-top: 0.975rem;
+    padding-left: 17rem;
+    display: inline-block;
+    position: relative;
+}
 
 .title {
     font-size: 25px;
@@ -64,6 +79,10 @@
 
 
 /*css for real time animating*/
+#Canvas_Main--realchart--page-cont .sapMOH {
+    padding: 2rem;
+}
+
 #Canvas_Main--realchart--page-cont text {
      fill: black;
     font-size: 0.7em;
@@ -94,12 +113,54 @@
     stroke-width: 1.5;
 }
 
+#__layout0 div .sapMLabel {
+	font-size: 2rem;
+	margin-left: 1rem;
+	margin-top: 1rem;
+}
+
+#__layout2 div .sapMLabel {
+	font-size: 2rem;
+	margin-left: 1rem;
+	margin-top: 1rem;
+}
+
+#__layout4 div .sapMLabel {
+	font-size: 2rem;
+	margin-left: 1rem;
+	margin-top: 1rem;
+}
+
+#__layout6 div .sapMLabel {
+	font-size: 2rem;
+	margin-left: 1rem;
+	margin-top: 1rem;
+}
+
+#__layout8 div .sapMLabel {
+	font-size: 2rem;
+	margin-left: 1rem;
+	margin-top: 1rem;
+}
+
+.sapUiTableHdr {
+    background-color: transparent;
+    min-height: 1.5rem;
+    margin-top: 0.825rem;
+    margin-left: 0.825rem;
+    margin-bottom: 0.125rem;
+    height: auto;
+}
 
 /*css for predict animating*/
 /*#Canvas_Main--predict--page-cont text {*/
 /*     fill: red;*/
 /*    font-size: 0.4em;*/
 /*}*/
+
+#Canvas_Main--predict--page-cont .sapMOH {
+    padding: 2rem;
+}
 
 #Canvas_Main--predict--page-cont .legend text {
      fill: black;

@@ -10,6 +10,7 @@
 							</core:Icon>
 						</m:FlexBox>
 						<m:NumericContent id="humiditynum" value="{SensorModel>/Sensor/S2}" withMargin="false"/>
+						<m:Label text="%RH" labelFor="humiditynum"/>
 					</l:HorizontalLayout >
 				</l:content>
 			</l:VerticalLayout>

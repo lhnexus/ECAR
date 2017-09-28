@@ -15,10 +15,10 @@ BEGIN
 	declare s5 double;
 	declare s6 double;
 	SELECT CURRENT_TIMESTAMP into ctime FROM "ECAR.ecardb::DUMMY";
-	SELECT RAND()*100 into s1 FROM "ECAR.ecardb::DUMMY";
-	SELECT RAND()*100 into s2 FROM "ECAR.ecardb::DUMMY";
-	SELECT RAND()*100 into s3 FROM "ECAR.ecardb::DUMMY";
-	SELECT RAND()*100 into s4 FROM "ECAR.ecardb::DUMMY";
+	SELECT (RAND()*10+25) into s1 FROM "ECAR.ecardb::DUMMY";
+	SELECT (RAND()*20+45) into s2 FROM "ECAR.ecardb::DUMMY";
+	SELECT (RAND()*80+20) into s3 FROM "ECAR.ecardb::DUMMY";
+	SELECT (RAND()*4+0.3) into s4 FROM "ECAR.ecardb::DUMMY";
 	SELECT (RAND()+5) into s5 FROM "ECAR.ecardb::DUMMY";
 	SELECT RAND()*100 into s6 FROM "ECAR.ecardb::DUMMY";
     insert into "ECAR.ecardb::ecar.simsensor" VALUES('LSGGH59L9DS157185','SEGMG20160101', :ctime, :s1, :s2, :s3, :s4, :s5, :s6);

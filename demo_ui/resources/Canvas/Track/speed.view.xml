@@ -10,6 +10,7 @@
 							</core:Icon>
 						</m:FlexBox>
 						<m:NumericContent id="speednum" value="{SensorModel>/Sensor/S4}" withMargin="false"/>
+						<m:Label text="km/h" labelFor="speednum"/>
 					</l:HorizontalLayout >
 				</l:content>
 			</l:VerticalLayout>

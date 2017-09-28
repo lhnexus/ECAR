@@ -10,6 +10,7 @@
 							</core:Icon>
 						</m:FlexBox>
 						<m:NumericContent id="temperaturenum" value="{SensorModel>/Sensor/S1}" withMargin="false"/>
+						<m:Label text="°C" labelFor="temperaturenum"/>
 					</l:HorizontalLayout >
 				</l:content>
 			</l:VerticalLayout>

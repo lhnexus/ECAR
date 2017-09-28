@@ -10,6 +10,7 @@
 							</core:Icon>
 						</m:FlexBox>
 						<m:NumericContent id="soundnum" value="{SensorModel>/Sensor/S3}" withMargin="false"/>
+						<m:Label text="dB" labelFor="soundnum"/>
 					</l:HorizontalLayout >
 				</l:content>
 			</l:VerticalLayout>

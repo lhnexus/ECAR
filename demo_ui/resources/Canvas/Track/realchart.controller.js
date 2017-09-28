@@ -117,10 +117,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 					text: "temperature(°C)"
 				}, {
 					color: "green",
-					text: "humidity(%)"
+					text: "sound(dB)"
 				}, {
 					color: "blue",
-					text: "noise(dB)"
+					text: "voltage(V)"
 				}];
 
 				var legend1 = osvg.append("g")
@@ -217,15 +217,15 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 				function tick() {
 					now = new Date();
 					var s1;
-					var s2;
 					var s3;
+					var s5;
 					that.getView().getModel("odata").read("/simsensor?$filter=(ID eq 'LSGGH59L9DS157185' and BID eq 'SEGMG20160101')&$top=1", {
 						async: false,
 						success: function(oData, response) {
 
 							s1 = oData.results[0].S1;
-							s2 = oData.results[0].S2;
 							s3 = oData.results[0].S3;
+							s5 = oData.results[0].S5;
 
 							// Add new values
 							for (var name in groups) {
@@ -235,10 +235,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "../Util/svgU
 									//console.log(s1);
 									group.data.push(s1);
 								} else if (name == 'target') {
-									group.data.push(s2);
+									group.data.push(s3);
 								} else {
 									// group.data.push(20 + Math.random() * 100);
-									group.data.push(s3);
+									group.data.push(s5);
 								}
 
 								group.path.attr('d', line);

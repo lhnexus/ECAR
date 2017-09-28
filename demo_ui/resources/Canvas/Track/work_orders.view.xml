@@ -2,7 +2,7 @@
 	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
 	<m:Page id="page" showHeader="false" enableScrolling="false">
 		<m:content>
-			<Table id="wo_table" rows="{path:'orderData>/results'}" title="Work Orders" selectionMode="MultiToggle" visibleRowCount="5">
+			<Table id="wo_table" rows="{path:'orderData>/results'}" title="Battery Maintenance Work Orders" selectionMode="MultiToggle" visibleRowCount="5">
 				<columns>
 					<Column width="15rem">
 						<m:Label text="Order ID"/>

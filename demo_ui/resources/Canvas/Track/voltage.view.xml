@@ -10,6 +10,7 @@
 							</core:Icon>
 						</m:FlexBox>
 						<m:NumericContent id="voltagenum" value="{SensorModel>/Sensor/S5}" withMargin="false"/>
+						<m:Label text="V" labelFor="voltagenum"/>
 					</l:HorizontalLayout >
 				</l:content>
 			</l:VerticalLayout>
