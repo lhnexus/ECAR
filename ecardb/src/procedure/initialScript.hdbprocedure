@@ -8,6 +8,22 @@ BEGIN
        Write your procedure logic 
    *************************************/
    --- prepared demo script ---
+   	declare b1_s1 double;
+	declare b1_s2 double;
+	declare b1_s3 double;
+	declare b1_s4 double;
+	declare b1_s5 double;
+	declare b1_s6 double;
+	 declare ctime timestamp;
+	 
+	 	SELECT CURRENT_TIMESTAMP into ctime FROM "ECAR.ecardb::DUMMY";
+	SELECT (RAND()*5+24) into b1_s1 FROM "ECAR.ecardb::DUMMY";
+	SELECT (RAND()*20+45) into b1_s2 FROM "ECAR.ecardb::DUMMY";
+	SELECT (RAND()*80+20) into b1_s3 FROM "ECAR.ecardb::DUMMY";
+	SELECT (RAND()*4+0.3) into b1_s4 FROM "ECAR.ecardb::DUMMY";
+	SELECT (RAND()*2+6) into b1_s5 FROM "ECAR.ecardb::DUMMY";
+	SELECT RAND()*100 into b1_s6 FROM "ECAR.ecardb::DUMMY";
+   
 	delete from "ECAR.ecardb::ecar.vehicle";
 	insert into "ECAR.ecardb::ecar.vehicle" values('LSGGH59L9DS157195','Mercedes-Benz','S600',1,12600,'Rock Black',150, 31.248454,121.478402,'GREEN', 'i039497');
 	insert into "ECAR.ecardb::ecar.vehicle" values('LSGGH59L9DS157115','Mercedes-Benz','W140',2,22600,'Rock Black',150, 31.241607, 121.529925,'GREEN', 'i323921');
@@ -35,7 +51,10 @@ BEGIN
 	insert into "ECAR.ecardb::ecar.service_order" values('20170437132133', 'i334966','LSGGH59L9DS157185','SEGMG20160104','20170324132131','REPLACED','Minghang 4S center','Justin Zhang');
 	
 	delete from "ECAR.ecardb::ecar.sensor";
+	insert into "ECAR.ecardb::ecar.sensor" VALUES('LSGGH59L9DS157185','SEGMG20160101', :ctime, :b1_s1, :b1_s2, :b1_s3, :b1_s4, :b1_s5, :b1_s6);
 	delete from "ECAR.ecardb::ecar.simsensor";
+	insert into "ECAR.ecardb::ecar.simsensor" VALUES('LSGGH59L9DS157185','SEGMG20160101', :ctime, :b1_s1, :b1_s2, :b1_s3, :b1_s4, :b1_s5, :b1_s6);
 	delete from "ECAR.ecardb::ecar.probability";
+	insert into "ECAR.ecardb::ecar.probability" VALUES('LSGGH59L9DS157185','SEGMG20160101', :ctime, 50, 70);
 
 END
